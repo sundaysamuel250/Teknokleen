@@ -10,37 +10,61 @@ import { DataNav } from '../../data/DataNav';
 
 
 const Navbar = () => {
-  const activeLink= "";
+  const activeLink = "border-b-4 px-[2px] border-[#86CFF2] text-[#23146D]";
     const normalLink = " ";
     let [open,setOpen]=useState(false);
   return (
-    <div className='shadow-md w-full fixed top-0 left-0'>
-      <div className='md:flex items-center justify-between bg-white py-4 md:px-10 px-7'>
-      <div className='font-bold text-2xl cursor-pointer flex items-center font-[Poppins] 
-      text-gray-800'>
-        <img src={Images.ogo} alt="Logo" />
+    <div className='w-full fixed top-0 left-0 z-50'>
+      <div className='md:flex items-center justify-between py-4 md:px-10 px-7'>
+      <div className='cursor-pointer flex items-center w-[50px] h-[50px]'>
+        <img src={Images.Logo} alt="Logo" />
       </div>
-      <div onClick={()=>setOpen(!open)} className='text-2xl absolute right top-6 cursor-pointer md:hidden'>
+      <div onClick={()=>setOpen(!open)} className='text-2xl absolute right-5 top-6 cursor-pointer md:hidden'>
      {open ? <RiCloseFill /> : <HiOutlineBars3BottomRight />}
       </div>
       {/* <Search />     */}
-      <ul className={`md:flex md:items-center md:pb-0 pb-12 absolute md:static bg-white md:z-auto z-[-1]
+      <ul className={`md:flex md:items-center md:pb-0 pb-12 absolute md:static md:z-auto z-[-1]
        left-0 w-full md:w-auto md:pl-0 pl-9 transition-all duration-500 ease-in ${open ? 'top-20 ':'top-[-490px]'}`}>
-        {
+        <li className='md:ml-8 text-[16px] text-[#0D1213] md:my-0 my-7'>
+          <NavLink
+          className={({ isActive }) =>
+          isActive ? activeLink : normalLink } to='/'
+          >Home</NavLink>
+        </li>
+        <li  className='md:ml-8 text-[16px] text-[#0D1213] md:my-0 my-7' > 
+          <NavLink
+          className={({ isActive }) =>
+          isActive ? activeLink : normalLink } to='/about'
+          //  style={({isActive})=> {return {color: isActive?'':''}}}
+           >About Us</NavLink>
+        </li>
+        <li  className='md:ml-8 text-[16px] text-[#0D1213] md:my-0 my-7'>
+          <NavLink
+          className={({ isActive }) =>
+          isActive ? activeLink : normalLink } to='/career'
+           >Career</NavLink>
+        </li>
+        <li  className='md:ml-8 text-[16px] text-[#0D1213] md:my-0 my-7'>
+          <NavLink
+          className={({ isActive }) =>
+          isActive ? activeLink : normalLink } to='/blog'
+           >Blog</NavLink>
+        </li>
+
+        {/* {
           DataNav.map((item)=>(
             <div className='md:ml-8 text-[14px] md:my-0 my-7'>
-              <NavLink key={item.title} 
-              className={({ isActive }) =>
-              isActive ? activeLink : normalLink
-            } >
-              <a href={item.path} className='text-[#0D1213] hover:text-gray-400 duration-500'>{item.title}</a>
-            </NavLink>
+              <li key={item.title}>
+              <NavLink
+              href={item.path} className='text-[#36454F] hover:text-[#000000] duration-500 font-normal'>{item.title}</NavLink>
+            </li>
             </div>
             
           ))
-        }
+        } */}
         <Link>
-        <button className="border-2 border-black px-5 sm:px-4 py-1 bg-[#23146D] text-[#fff] rounded-lg mx-4 font-md">
+        <button className="border-none leading-normal font-['Poppins'] font-normal] border-inherit px-5 sm:px-4 py-1 bg-[#23146D] 
+        text-[#fff] text-[16px] rounded-[10px] mx-4 not-italic font-normal text-base font-medium">
          Contact Us
         </button>
         </Link>

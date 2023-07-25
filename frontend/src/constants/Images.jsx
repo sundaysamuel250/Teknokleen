@@ -1,5 +1,6 @@
 import Logo from "../assets/logo.png"
 import Home from "../assets/home.png"
+import ImgBG from "../assets/bg.png"
 
 
 
@@ -8,7 +9,8 @@ import Home from "../assets/home.png"
 
 
 
-export default [
+export default {
     Logo,
-    Home
-]
+    Home,
+    ImgBG
+}

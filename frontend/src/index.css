@@ -9,10 +9,30 @@ body {
   height: 100vh;
   background-color: #ffffff;
   /* background: linear-gradient(180deg, #d7dde9 0%, rgb(255, 255, 255) 100%); */
-  font-family: 'IBM Plex Sans', sans-serif;
-  font-family: 'Poppins ', sans-serif;  
+  font-family: 'Poppins ';  
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   overflow-x: none;
+}
+
+/* .bg-img {
+  background-image: url('./assets/bg.png');
+  background-repeat: no-repeat;
+  position: absolute;
+  top: 0;
+  right: -5%;
+  
+} */
+
+.bg-img{
+  position: absolute;
+  top: -20;
+  right: -20%;
+  transform: translate(50% 100%);
+  background-color: #FAECC9;
+  width: 868px;
+  height: 858px;
+  border-top-left-radius: 55% 100%;
+  border-bottom-right-radius: 50%;
 }
