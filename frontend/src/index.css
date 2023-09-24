@@ -36,3 +36,14 @@ body {
   border-top-left-radius: 55% 100%;
   border-bottom-right-radius: 50%;
 }
+
+
+@font-face {
+  font-family: "fontprimary";
+  src: url("https://fonts.googleapis.com/css2?family=Gentium+Book+Plus:wght@700&display=swap");
+}
+
+/* @font-face {
+  font-family: "fontbold";
+  src: url("/src/assets/font/CarbonaTest-SemiBold.woff");
+} */
