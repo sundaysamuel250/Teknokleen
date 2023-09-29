@@ -2,14 +2,19 @@
 module.exports = {
   content: ["./index.html", "./src/**/*.{js,jsx,ts,tsx}"],
   theme: {
-    fontFamily: {
-      primary: ["fontprimary", "sans-serif"],
-      primarybold: ["fontbold", "sans-serif"],
-    },
-    container: {
-      padding: {
-        DEFAULT: '1rem',
-        lg: '2rem',
+    extend: {
+      screens: {
+        'sm': '640px',   // Small screens (e.g., mobile phones)
+        'md': '768px',   // Medium screens (e.g., tablets)
+        'lg': '1024px',  // Large screens (e.g., laptops)
+        'xl': '1280px',  // Extra-large screens (e.g., desktops)
+      },
+      fontFamily: {
+        poppins: ['Poppins', 'sans-serif'],
+      },
+      fontFamily: {
+        'gentium-book-basic': ['Gentium Book Basic', 'serif'],
+        'gochi-hand': ['Gochi Hand', 'cursive'],
       },
     },
   },
