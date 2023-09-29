@@ -15,7 +15,7 @@ const HeroSection = () => {
    });
   return (
     <motion.section className="lg:mx-[4rem] mx-[2rem] lg:flex items-center"
-    style={{opacity}}
+    style={{opacity, scale}}
     ref={targetRef}
     
     > 

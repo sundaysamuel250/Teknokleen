@@ -28,6 +28,8 @@ import Choose from "../assets/chooose.svg"
 import LearnAbout from "../assets/let's.png"
 import Woman_home from "../assets/About_hero_image.png"
 import Digital_service from "../assets/digital-service.png"
+import Mission from "../assets/mission_img.svg"
+import Team from "../assets/team.jpg"
 
 
 
@@ -66,6 +68,8 @@ export default {
     Choose,
     LearnAbout,
     Woman_home,
-    Digital_service
+    Digital_service,
+    Mission,
+    Team
 
 }
