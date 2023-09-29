@@ -31,10 +31,10 @@ const Our_story_Section = () => {
           </section>
           <section className="flex items-center justify-center ">
           <div className="relative">
-          <div class="w-[100px] h-[100px] absolute rounded-br-[10px] rounded-tl-[30px] lg:top-[8.5rem] top-[5rem] lg:left-0 md:left-[2rem] left-[-2rem] bg-[#FCDDEC]" />
-          <div class="w-[100px] h-[100px] absolute  rounded-br-[30px] rounded-tl-[10px] bottom-[-2rem] right-[-2rem] -z-20 bg-[#FCDDEC]" />
+          <div class="w-[100px] h-[100px] absolute rounded-br-[10px] rounded-tl-[30px] lg:top-[8.5rem] top-[5rem] lg:left-[-4.1rem] md:left-[2rem] left-[-2rem] bg-[#FCDDEC]" />
+          <div class="w-[100px] h-[100px] absolute  rounded-br-[30px] rounded-tl-[10px] bottom-[-2rem] lg:right-[-2rem] md:right-[-4rem] right-[1rem] -z-20 bg-[#FCDDEC]" />
           <div className="flex items-center justify-center ">
-          <div className="absolute lg:top-[11.5rem] top-[7rem] lg:w-[502px] lg:h-[365px] md:w-[400px] md:left-[4.4rem] md:h-[365px] w-[250px] h-[150px] rounded-[10px] bg-blue-200 -z-50" />
+          <div className="absolute lg:top-[11.5rem] top-[7rem] lg:w-[502px] lg:h-[365px] md:w-[400px] lg:left-0 md:left-[4.4rem] md:h-[365px] w-[250px] h-[150px] rounded-[10px] bg-blue-200 -z-50" />
           </div>
             <img src={Images.Digital_service} alt="digital service" className="lg:w-[100%] lg:h-[100%]" />
           </div>
