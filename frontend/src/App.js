@@ -6,6 +6,7 @@ import Career from "./pages/career/Career";
 import { Blog } from "./pages/blog/Blog";
 import { HygieneLanding } from "./pages/hygiene";
 import { HygieneShop } from "./pages/hygine-shop";
+import { School } from "./pages/school";
 
 function App() {
   return (
@@ -24,6 +25,10 @@ function App() {
 
           <Route path="hygiene-shop">
             <Route path="" element={<HygieneShop />} />
+          </Route>
+
+          <Route path="school">
+            <Route path="" element={<School />} />
           </Route>
         </Routes>
       </Router>
