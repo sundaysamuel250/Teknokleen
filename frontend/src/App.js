@@ -6,7 +6,7 @@ import Career from "./pages/career/Career";
 import { Blog } from "./pages/blog/Blog";
 import { HygieneLanding } from "./pages/hygiene";
 import { HygieneShop } from "./pages/hygine-shop";
-import { School } from "./pages/school";
+import { Courses, School } from "./pages/school";
 
 function App() {
   return (
@@ -29,6 +29,7 @@ function App() {
 
           <Route path="school">
             <Route path="" element={<School />} />
+            <Route path="courses" element={<Courses />} />
           </Route>
         </Routes>
       </Router>
