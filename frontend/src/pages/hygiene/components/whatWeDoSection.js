@@ -5,7 +5,7 @@ import { what_we_do } from "../../../data/what_we_do";
 import HygieneModal from "./hygiene_modal";
 
 const WhatWeDoSection = () => {
-  const [showModal, setShowModal] = useState(true);
+  const [showModal, setShowModal] = useState(false);
   const [modalID, setShowModalID] = useState("one-off-cleaning");
 
   const openModal = (id) => {
