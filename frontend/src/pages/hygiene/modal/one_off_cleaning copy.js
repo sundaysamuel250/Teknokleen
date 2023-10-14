@@ -1,4 +1,4 @@
-import { pestCards } from "../../../data/what_we_do";
+
 
 function PeriodicCleaningModal() {
   return (

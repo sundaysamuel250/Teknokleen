@@ -1,6 +1,7 @@
 import React from "react";
 import Images from "../../../constants/Images";
 import { BsArrowRight } from "react-icons/bs";
+import { Link } from "react-router-dom";
 
 const ServicesSection = () => {
   return (
@@ -64,10 +65,11 @@ const ServicesSection = () => {
                 and accessories.
               </p>
               <div className="flex items-center justify-center">
-                <button className="lg:pt-8 md:pt-4 p-4 flex items-center justify-center lg:text-[18px] md:text-[12px] text-[10px] font-semibold text-[#86CFF2] ">
+               <Link to='/hygiene'>
+               <button className="lg:pt-8 md:pt-4 p-4 flex items-center justify-center lg:text-[18px] md:text-[12px] text-[10px] font-semibold text-[#86CFF2] ">
                   Visit website
                   <BsArrowRight className="ml-2" />
-                </button>
+                </button></Link>
               </div>
             </section>
           </section>

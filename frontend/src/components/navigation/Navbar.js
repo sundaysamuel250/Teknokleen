@@ -60,7 +60,7 @@ const Navbar = () => {
             
           ))
         } */}
-        <Link>
+        <Link to='/contact'>
         <button className="border-none leading-normal font-['Poppins'] font-normal] border-inherit px-5 sm:px-4 py-1 bg-[#23146D] 
         text-[#fff] text-[16px] rounded-[10px] mx-4 not-italic text-base font-medium">
          Contact Us

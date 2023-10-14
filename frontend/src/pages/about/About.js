@@ -6,6 +6,7 @@ import Vision_page from './components/Vision_page'
 import Mission_page from './components/Mission_page'
 import ExemplifyValue_page from './components/ExemplifyValue_page'
 import AboutCleaningSection from '../home/components/AboutCleaningSection'
+import Footer_about from './components/Footer_about'
 
 const About = () => {
   return (
@@ -17,6 +18,7 @@ const About = () => {
       <Mission_page />
       <ExemplifyValue_page />
       <AboutCleaningSection />
+      <Footer_about />
     </div>
   )
 }

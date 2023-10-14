@@ -11,6 +11,7 @@ module.exports = {
       },
       fontFamily: {
         poppins: ['Poppins', 'sans-serif'],
+        sans:  ['Inter', 'sans']
       },
       fontFamily: {
         'gentium-book-basic': ['Gentium Book Basic', 'serif'],

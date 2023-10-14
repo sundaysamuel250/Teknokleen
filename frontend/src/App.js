@@ -6,6 +6,7 @@ import About from './pages/about/About';
 import Career from './pages/career/Career';
 import { Blog } from './pages/blog/Blog';
 import { HygieneLanding } from './pages/hygiene';
+import Contact from './pages/contact/Contact';
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
         <Route path='about' element={<About />} />
         <Route path='career' element={<Career />} />
         <Route path='blog' element={<Blog />} />
+        <Route path='contact' element={<Contact />} />
         {/* hygiene */}
         <Route path='hygiene' >
           <Route path='' element={<HygieneLanding />} />

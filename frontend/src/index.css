@@ -15,7 +15,9 @@ body {
   box-sizing: border-box;
   overflow-x: none;
 }
-
+ .Branch_section{
+  background-color: #FCFAF5;
+ }
 /* .bg-img {
   background-image: url('./assets/bg.png');
   background-repeat: no-repeat;

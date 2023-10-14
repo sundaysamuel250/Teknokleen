@@ -13,7 +13,7 @@ const WhatWeDoSection = () => {
     setShowModal(true);
   };
   return (
-    <section className=" lg:h-[100vh] md:h-[50vh] h-[100vh] lg:py-20 md:py-20 py-[4rem]">
+    <section className=" lg:h-[100vh] md:h-[50vh] h-[100vh] lg:py-20 md:py-20 md:mb-[-1rem] mb-[16rem]">
       {/* modal */}
 
       {showModal && (
