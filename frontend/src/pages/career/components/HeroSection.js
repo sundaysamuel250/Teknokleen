@@ -1,8 +1,20 @@
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import Images from "../../../constants/Images";
 import { motion, useScroll, useTransform } from "framer-motion";
+import ApplicationForm from "../../../components/ApplicationForm";
+
 
 const CareerHeroSection = () => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const openModal = () => {
+    setIsModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setIsModalOpen(false);
+  };
+
   const targetRef = useRef(null);
   const { scrollYProgress } = useScroll({
     target: targetRef,
@@ -62,9 +74,10 @@ const CareerHeroSection = () => {
           </section>
         </section>
         <section className="md:flex py-12 gap-5 flex">
-          <button className="bg-[#23146D] hover:bg-[#00A5E2] hover:tracking-[1px] md:w-[203px] md:h-[64px] w-[150px] h-[40px] rounded-[10px] text-[#fff] font-normal font-['Poppins'] md:text-[16px] text-[10px] leeding-none not-italic border-none tracking-wide ">
+          <button onClick={openModal} className="bg-[#23146D] hover:bg-[#00A5E2] hover:tracking-[1px] md:w-[203px] md:h-[64px] w-[150px] h-[40px] rounded-[10px] text-[#fff] font-normal font-['Poppins'] md:text-[16px] text-[10px] leeding-none not-italic border-none tracking-wide ">
             Apply Now
           </button>
+          <ApplicationForm isOpen={isModalOpen} onClose={closeModal} />
           <div className="h-[100px] w-[100px] bg-[#00A5E2] rounded-[50%] opacity-[0.7] blur-[67px] absolute md:left-[12%] bottom-[2%]" />
         </section>
       </section>

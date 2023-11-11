@@ -1,3 +1,4 @@
+import ServiceForm from "../../../components/ServicesForm";
 import { pestCards } from "../../../data/what_we_do";
 
 function PestModal() {
@@ -32,6 +33,10 @@ function PestModal() {
           </div>
         ))}
       </div>
+     <div>
+     <h2 className="text-center text-[#23146D] font-bold lg:text-7xl md:text-4xl text-2xl leading-[106.3%] font-gentium-book-basic py-4">Tell us how we can help you</h2>
+     <ServiceForm />
+     </div>
     </div>
   );
 }

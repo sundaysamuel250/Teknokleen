@@ -1,4 +1,5 @@
-import React from 'react'
+import React, {useRef} from 'react'
+import {  motion, useScroll, useTransform } from "framer-motion";
 import HeroSection from './components/HeroSection'
 import ServicesSection from './components/ServicesSection'
 import OurClientSection from './components/OurClientSection'

@@ -1,5 +1,6 @@
 import React from "react";
 import Images from "../../../constants/Images";
+import { Link } from "react-router-dom";
 
 const AboutCleaningSection = () => {
   return (
@@ -16,9 +17,11 @@ const AboutCleaningSection = () => {
                 professionalism?
               </p>
               <div className="">
+                <Link to="/contact">
                 <button className="bg-[#23146D] lg:mt-[2rem] mt-[1rem] hover:bg-[#00A5E2] hover:tracking-[1px] md:w-[203px] md:h-[64px] w-[150px] h-[40px] rounded-[10px] text-[#fff] font-normal font-['Poppins'] md:text-[16px] text-[10px] leeding-none not-italic border-none tracking-wide ">
                   Contact Us
                 </button>
+                </Link>
               </div>
           </section>
             <section className="flex items-center justify-center">

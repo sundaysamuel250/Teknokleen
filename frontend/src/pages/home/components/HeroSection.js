@@ -1,6 +1,7 @@
 import React, { useRef } from "react";
 import Images from "../../../constants/Images";
 import { motion, useScroll, useTransform } from "framer-motion";
+import { Link } from "react-router-dom";
 
 const HeroSection = () => {
   const targetRef = useRef(null);
@@ -11,12 +12,12 @@ const HeroSection = () => {
   const opacity = useTransform(scrollYProgress, [0, 0.9], [2, 0]);
   const scale = useTransform(scrollYProgress, [0, 0.8], [1, 0.8]);
   const position = useTransform(scrollYProgress, (pos) => {
-    return pos === 1 ? "relative" : "fixed";
+    return pos === 1 ? "absolute" : "mt-50";
   });
   return (
     <motion.section
       className="lg:mx-[4rem] mx-[2rem] lg:flex items-center"
-      style={{ opacity }}
+      style={{ opacity}}
       ref={targetRef}
     >
       <section className="md:mt-40 mt-40">
@@ -63,9 +64,11 @@ const HeroSection = () => {
           </section>
         </section>
         <section className="md:flex py-12 gap-5 flex">
+          <Link to="/contact">
           <button className="bg-[#23146D] hover:bg-[#00A5E2] hover:tracking-[1px] md:w-[203px] md:h-[64px] w-[150px] h-[40px] rounded-[10px] text-[#fff] font-normal font-['Poppins'] md:text-[16px] text-[10px] leeding-none not-italic border-none tracking-wide ">
             Book Now
           </button>
+          </Link>
           <button className="bg-[#fff] hover:bg-[#FAECC9] hover:tracking-[1px] md:w-[203px] md:h-[64px] w-[150px] h-[40px] rounded-[10px] text-[#23146D] font-normal font-['Poppins'] md:text-[16px] text-[10px] leeding-none not-italic border-[#23146D] border-[2px] tracking-wide">
             Learn More
           </button>

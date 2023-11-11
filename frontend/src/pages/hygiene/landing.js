@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import OurClientSection from "../home/components/OurClientSection";
 import UnleashSection from "./components/unleashSection";
 import WhatWeDoSection from "./components/whatWeDoSection";
-import FooterSection from '../home/components/FooterSection'
+import Footer_about from '../about/components/Footer_about'
 import AboutCleaningSection from '../home/components/AboutCleaningSection'
 const HygieneLanding = () => {
   
@@ -15,7 +15,7 @@ const HygieneLanding = () => {
     <UnleashSection />
     <WhatWeDoSection />
     <AboutCleaningSection />
-    <FooterSection />
+    <Footer_about />
     </>
   );
 };

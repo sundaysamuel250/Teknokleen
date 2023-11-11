@@ -98,7 +98,7 @@ function Form() {
               onChange={handleChange}
               rows="4"
               autoComplete="off"
-              className="mt-1 rounded-[8px] block lg:w-[832px] md:w-[570px] h-[240px] w-[340px] lg:h-[56px]  border border-solid border-gray-300 bg-white p-4 shadow-sm font-sans focus:ring focus:ring-blue-200 focus:outline-none"
+              className="mt-1 rounded-[8px] block lg:w-[832px] md:w-[570px] h-[240px] w-[340px] lg:h-[240px]  border border-solid border-gray-300 bg-white p-4 shadow-sm font-sans focus:ring focus:ring-blue-200 focus:outline-none"
             ></textarea>
           </div>
           <div>

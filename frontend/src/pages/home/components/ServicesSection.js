@@ -5,7 +5,8 @@ import { Link } from "react-router-dom";
 
 const ServicesSection = () => {
   return (
-    <section className=" lg:h-[100vh] md:h-[50vh] h-[100vh] lg:py-20 md:py-20 py-[4rem]">
+    <section
+     className=" lg:h-[100vh] md:h-[50vh] h-[100vh] lg:py-20 md:py-20 py-[4rem]">
       <h1 className="text-center py-6 pb-12 font-bold tracking-[1px] lg:text-[64px] md:text-[60px] text-[32px] text-[#23146D] font-gentium-book-basic ">
         Our Services{" "}
       </h1>
@@ -35,10 +36,12 @@ const ServicesSection = () => {
                 technologies.
               </p>
               <div className="flex items-center justify-center">
+                <Link to="/hygiene">
                 <button className="lg:pt-8 md:pt-4  pt-4 flex items-center justify-center text-[10px] lg:text-[18px] md:text-[12px] font-semibold text-[#86CFF2] ">
                   Visit website
                   <BsArrowRight className="ml-2" />
                 </button>
+                </Link>
               </div>
             </section>
           </section>
@@ -65,7 +68,7 @@ const ServicesSection = () => {
                 and accessories.
               </p>
               <div className="flex items-center justify-center">
-               <Link to='/hygiene'>
+               <Link to='/hygiene-shop'>
                <button className="lg:pt-8 md:pt-4 p-4 flex items-center justify-center lg:text-[18px] md:text-[12px] text-[10px] font-semibold text-[#86CFF2] ">
                   Visit website
                   <BsArrowRight className="ml-2" />
@@ -95,10 +98,12 @@ const ServicesSection = () => {
                 centre for courses in cleaning and housekeeping.
               </p>
               <div className="flex items-center justify-center">
+                <Link to="/school">
                 <button className="lg:pt-8 md:pt-4 p-4 flex items-center justify-center lg:text-[18px] md:text-[12px] text-[10px] font-semibold text-[#86CFF2] ">
                   Visit website
                   <BsArrowRight className="ml-2" />
                 </button>
+                </Link>
               </div>
             </section>
           </section>

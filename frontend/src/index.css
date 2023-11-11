@@ -6,7 +6,6 @@
 @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;600;700&family=Poppins:ital,wght@0,300;1,500&display=swap');
 
 body {
-  height: 100vh;
   background-color: #ffffff;
   /* background: linear-gradient(180deg, #d7dde9 0%, rgb(255, 255, 255) 100%); */
   font-family: 'Poppins ';  

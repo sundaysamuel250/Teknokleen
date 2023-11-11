@@ -1,17 +1,29 @@
-import React from "react";
+import React, { useRef } from "react";
 import Images from "../../../constants/Images";
 import "./OurClientSection.css";
-import { motion } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
 
 const OurClientSection = () => {
+  const targetRef = useRef(null)
+  const {scrollYProgress} = useScroll({
+   target: targetRef,
+   offset: ["end end", "end start"]
+  });
+  const opacity =  useTransform(scrollYProgress, [0, 0.9], [2, 0]);
+  const scale = useTransform(scrollYProgress, [0, 0.5], [1, 0.8]);
+  const position = useTransform(scrollYProgress, (pos) => {
+     return pos === 1 ? "relative" : "fixed";
+  });
   const slideVariants = {
     hidden: { opacity: 0, x: "-100%" },
     visible: { opacity: 1, x: 0 },
     exit: { opacity: 0, x: "100%" },
   };
   return (
-    <>
-      <div className="flex items-center justify-center border-2 border-[#85CFF280]  lg:w-full lg:h-[212px] md:w-[100%] md:h-[212px] h-[150px] lg:rounded-l-[400px] md:rounded-l-[400px] rounded-l-[200px] border-bl-4 lg:mt-6 md:mt-6 mt-[30rem] lg:ml-[8rem]">
+    <motion.div 
+    style={{opacity}}
+    ref={targetRef}>
+      <div className="flex items-center justify-center border-2 border-[#85CFF280]  lg:w-full lg:h-[212px] md:w-[100%] md:h-[212px] h-[150px] lg:rounded-l-[400px] md:rounded-l-[400px] rounded-l-[200px] border-bl-4 lg:mt-6 md:mt-6 mt-[24rem]  lg:ml-[8rem]">
         <div className="mb-2 lg:ml-40 md:ml-20 ml-10">
           <h3 className='lg:text-[29px] md:text-[20px] text-[16px] font-["Poppins"] not_italic font-semibold lg:w-[300px] w-[150px] md: '>
             Over <span className="text-[#00A5E2]">100+</span>plus happy clients
@@ -85,7 +97,7 @@ const OurClientSection = () => {
           </div>
         </motion.div>
       </div>
-    </>
+    </motion.div>
   );
 };
 

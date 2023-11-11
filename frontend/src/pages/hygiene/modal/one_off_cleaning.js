@@ -1,3 +1,4 @@
+import ServiceForm from "../../../components/ServicesForm";
 
 
 function OneOffCleaningModal() {
@@ -52,6 +53,10 @@ function OneOffCleaningModal() {
 
           <li>After building work has been completed.</li>
         </ul>
+      </div>
+      <div>
+      <h2 className="text-center text-[#23146D] font-bold lg:text-7xl md:text-4xl text-2xl leading-[106.3%] font-gentium-book-basic py-4">Tell us how we can help you</h2>
+        <ServiceForm />
       </div>
     </div>
   );

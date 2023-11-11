@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import FooterSection from "../../home/components/FooterSection";
 import OneOffCleaningModal from "../modal/one_off_cleaning";
 import PeriodicCleaningModal from "../modal/one_off_cleaning copy";
@@ -12,13 +13,13 @@ function HygieneModal({ onClose, id }) {
           <div className="container mx-auto relative">
             <div className="bg-white p-[40px]  rounded-t-[45px] shadow min-[80vh]">
               <div className="mb-3">
-                <a
+                <Link
                   className="text-blue font-bold text-[14px]"
                   href="#?"
                   onClick={() => onClose()}
                 >
                   go back
-                </a>
+                </Link>
               </div>
               {id === "pest-control" && <PestModal />}
               {id === "one-off-cleaning" && <OneOffCleaningModal />}

@@ -27,7 +27,7 @@ function SlideProducts() {
                 />
                 <div className="">
                   <h3 className="text-[#23146D] font-[poppins] text-[17px]">
-                    Product name 1
+                  Washable brush
                   </h3>
                   <p>(6 Items)</p>
                 </div>
