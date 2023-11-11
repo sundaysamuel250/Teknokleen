@@ -3,6 +3,7 @@ import SortByDropdown from "../atoms/sortby_dropdown";
 import { FaCartShopping, FaHeart } from "react-icons/fa6";
 import { AiOutlineSearch } from "react-icons/ai";
 import { washableBrush } from "../../../constants/hygiene_shop_images";
+import { productList } from "../../../data/products";
 function FeaturedProduct() {
   return (
     <div className="container font-['poppins'] px-3 lg:px-auto mx-auto">
@@ -52,7 +53,7 @@ function FeaturedProduct() {
         </div>
 
         <div className="grid gap-4 grid-cols-1 md:grid-cols-3 lg:grid-cols-4">
-          {[1, 2, 3, 4, 5, 6, 7, 8].map((item, i) => (
+          {productList.map((item, i) => (
             <div
               key={i}
               className="product relative p-3 pb-0 pl-0 rounded shadow bg-white"
@@ -70,7 +71,9 @@ function FeaturedProduct() {
                 />
               </div>
               <div className="p-2 pl-4">
-                <h6>Washable Machine</h6>
+                <h6>
+                  {item.name.substring(0, 30)} {item.name.length > 30 && "..."}{" "}
+                </h6>
               </div>
               <button
                 style={{ borderTopRightRadius: "10px" }}
