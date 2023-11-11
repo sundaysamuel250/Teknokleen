@@ -9,9 +9,13 @@ import Contact from "./pages/contact/Contact"
 import { Blog } from "./pages/blog/Blog";
 import { HygieneLanding } from "./pages/hygiene";
 import { HygieneShop } from "./pages/hygine-shop";
+<<<<<<< HEAD
 import { Courses, School } from "./pages/school";
 import RegistrationForm from './pages/school/components/RegistrationForm';
 import ScrollToTop from './components/ScrollToTop';
+=======
+import { School } from "./pages/school";
+>>>>>>> started school
 
 function App() {
   return (
@@ -38,7 +42,10 @@ function App() {
 
           <Route path="school">
             <Route path="" element={<School />} />
+<<<<<<< HEAD
             <Route path="courses" element={<Courses />} />
+=======
+>>>>>>> started school
           </Route>
         </Routes>
       </Router>
