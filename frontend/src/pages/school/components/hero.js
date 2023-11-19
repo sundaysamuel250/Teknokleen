@@ -3,16 +3,11 @@ import Images from "../../../constants/Images";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { HygieneBG } from "../../../constants/hygiene_images";
 import { shopImage } from "../../../constants/hygiene_shop_images";
-<<<<<<< HEAD
 import { useNavigate } from "react-router-dom";
 import { schoolImage } from "../../../constants/school_images";
 
 const SchoolHero = () => {
   const navigate = useNavigate();
-=======
-
-const HygieneShopHero = () => {
->>>>>>> started school
   const targetRef = useRef(null);
   const { scrollYProgress } = useScroll({
     target: targetRef,
@@ -29,11 +24,7 @@ const HygieneShopHero = () => {
       style={{ opacity }}
       ref={targetRef}
     >
-<<<<<<< HEAD
       <section className="w-full  md:mt-40 mt-40">
-=======
-      <section className="w-full overflow-hidden md:mt-40 mt-40">
->>>>>>> started school
         <p
           className="w-[155px] h-[19px] text-center bg-[#E2F3FD] rounded-[5px] 
         text-[#23146D] text-[12px] mb-10 font-gochi-hand font-normal "
@@ -55,7 +46,6 @@ const HygieneShopHero = () => {
                 opacity: 0.9,
               }}
             >
-<<<<<<< HEAD
               <span>
                 <span className="relative">
                   Nurturing
@@ -66,19 +56,6 @@ const HygieneShopHero = () => {
               <br />
               <div className="h-[100px] w-[100px] bg-[#00A5E2] rounded-[50%] opacity-[0.7] blur-[67px] absolute lg:left-[40%] md:left-[60%]" />
               <b>Teknokleen Where Knowledge flourishes</b>
-=======
-              <b>
-                Your&nbsp;
-                <span className="relative">
-                  One Stop
-                  <div className="lg:h-[20px] h-[6px] w-[100%] bg-[#FFC640] absolute left-[0] lg:bottom-[20px] bottom-[7px] -z-30" />
-                </span>
-                &nbsp; Shop
-              </b>
-              <br />
-              <div className="h-[100px] w-[100px] bg-[#00A5E2] rounded-[50%] opacity-[0.7] blur-[67px] absolute lg:left-[40%] md:left-[60%]" />
-              <b>For Cleaningnes and Sanitary Solution</b>
->>>>>>> started school
             </motion.h1>
             <motion.p
               initial={{ x: -999 }}
@@ -89,7 +66,6 @@ const HygieneShopHero = () => {
               }}
               className="md:w-[513px] italic md:text-[16px] text-[10px] font-['Poppins'] lg:leading-[30px] md:leading-[30px] leading-[16px] text-[#4F4F4F] "
             >
-<<<<<<< HEAD
               As a leading training institution, we are dedicated to empowering
               individuals with the knowledge and skills needed to thrive in the
               cleaning and facility management industry.
@@ -111,41 +87,22 @@ const HygieneShopHero = () => {
             className="bg-[#23146D] w-full hover:bg-[#00A5E2] hover:tracking-[1px] md:w-[203px] md:h-[64px] h-[40px] rounded-[10px] text-[#fff] font-normal font-['Poppins'] md:text-[16px] text-[10px] leeding-none not-italic border-none tracking-wide "
           >
             View Courses
-=======
-              Elevate Hygiene Standards with Our Comprehensive Cleaning
-              Solutions
-            </motion.p>
-          </section>
-        </section>
-        <section className="md:flex py-12 gap-5 flex">
-          <button className="bg-[#23146D] hover:bg-[#00A5E2] hover:tracking-[1px] md:w-[203px] md:h-[64px] w-[150px] h-[40px] rounded-[10px] text-[#fff] font-normal font-['Poppins'] md:text-[16px] text-[10px] leeding-none not-italic border-none tracking-wide ">
-            Shop Now
->>>>>>> started school
           </button>
 
           <div className="h-[100px] w-[100px] bg-[#00A5E2] rounded-[50%] opacity-[0.7] blur-[67px] absolute md:left-[12%] bottom-[2%]" />
         </section>
       </section>
-<<<<<<< HEAD
       <section className="hidden lg:block">
-=======
-      <section className="">
->>>>>>> started school
         <div className="h-[25px] w-[25px] md:bg-[#00CCB1] bg-none rounded-md md:absolute md:top-[40%] md:right-[5%] absolute top-[50%] right-[20%] z-50" />
         <div className="h-[25px] w-[25px] md:bg-[#6EC1E4] bg-none rounded-tl-[50px] rounded-tr-[10px] rounded-bl-[10px] rounded-br-[10px] md:absolute lg:top-[48%] md:top-[80%] right-[33rem] z-50 " />
         <div className="h-[25px] w-[25px] md:bg-[#FAECC9] bg-none rounded-md md:absolute md:top-[90%] md:right-[5%] absolute top-[4%] left-[46%] z-50" />
         <section className="md:relative absolute right-[100px] top-[-2rem] md:right-[-8rem] lg:right-[-4rem]">
-<<<<<<< HEAD
-          <motion.div className="md:absolute relative right-0 top-40  w-full right-0 h-[300px] ">
+          <motion.div className="md:absolute relative right-0 top-40  w-full h-[300px] ">
             <img
               src={schoolImage}
               className="h-[600px] absolute right-0 object-cover object-top"
               alt="picture"
             />
-=======
-          <motion.div className="md:absolute relative lg:left-[-2rem]  left-0 md:p-[] md:left-0 lg:top-20 top-4 md:right-5 lg:w-[667px] lg:h-[567px] md:w-[554px] md:h-[746px]  w-[300px] h-[300px] ">
-            <img src={shopImage} alt="picture" />
->>>>>>> started school
           </motion.div>
           <div className="">
             <svg
@@ -156,11 +113,7 @@ const HygieneShopHero = () => {
             >
               <path
                 d="M267.18 718.451C-191.464 576.118 42.7271 181.213 217.153 1.55255L436.77 -63.3346L779.453 -112L868 177.376C858.828 417.04 725.824 860.784 267.18 718.451Z"
-<<<<<<< HEAD
                 fill="#6FCF97"
-=======
-                fill="#FAECC9"
->>>>>>> started school
                 fill-opacity="0.6"
               />
             </svg>
@@ -171,8 +124,4 @@ const HygieneShopHero = () => {
   );
 };
 
-<<<<<<< HEAD
 export default SchoolHero;
-=======
-export default HygieneShopHero;
->>>>>>> started school

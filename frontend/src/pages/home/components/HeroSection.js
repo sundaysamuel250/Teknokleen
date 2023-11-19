@@ -1,6 +1,7 @@
 import React, { useRef } from "react";
 import Images from "../../../constants/Images";
 import { motion, useScroll, useTransform } from "framer-motion";
+import { PopupButton } from "react-calendly"
 import { Link } from "react-router-dom";
 
 const HeroSection = () => {
@@ -64,10 +65,19 @@ const HeroSection = () => {
           </section>
         </section>
         <section className="md:flex py-12 gap-5 flex">
-          <Link to="/contact">
+          <Link >
           <button className="bg-[#23146D] hover:bg-[#00A5E2] hover:tracking-[1px] md:w-[203px] md:h-[64px] w-[150px] h-[40px] rounded-[10px] text-[#fff] font-normal font-['Poppins'] md:text-[16px] text-[10px] leeding-none not-italic border-none tracking-wide ">
-            Book Now
+          <PopupButton
+        url="https://calendly.com/orinamesunday360"
+        /*
+         * react-calendly uses React's Portal feature (https://reactjs.org/docs/portals.html) to render the popup modal. As a result, you'll need to
+         * specify the rootElement property to ensure that the modal is inserted into the correct domNode.
+         */
+        rootElement={document.getElementById("root")}
+        text="Book Now"
+      />
           </button>
+      
           </Link>
           <button className="bg-[#fff] hover:bg-[#FAECC9] hover:tracking-[1px] md:w-[203px] md:h-[64px] w-[150px] h-[40px] rounded-[10px] text-[#23146D] font-normal font-['Poppins'] md:text-[16px] text-[10px] leeding-none not-italic border-[#23146D] border-[2px] tracking-wide">
             Learn More

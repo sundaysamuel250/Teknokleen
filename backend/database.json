@@ -6,7 +6,7 @@
 		"host": "localhost",
 		"user": "root",
 		"password" : "root",
-		"database": "tekno",
+		"database": "teknokleen",
 		"driver": "mysql",
 		"port": "8889",
 		"multipleStatements": true
@@ -18,7 +18,7 @@
 		"host": "localhost",
 		"user": "root",
 		"password" : "root",
-		"database": "tekno",
+		"database": "teknokleen",
 		"driver": "mysql",
 		"port": "8889",
 		"multipleStatements": true

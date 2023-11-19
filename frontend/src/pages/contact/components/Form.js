@@ -1,5 +1,6 @@
 // src/components/Form.js
 import React, { useState } from "react";
+import axios from "axios"
 
 function Form() {
   const [formData, setFormData] = useState({
@@ -14,9 +15,22 @@ function Form() {
     setFormData({ ...formData, [name]: value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     // Handle form submission here
+    try {
+      const response = await axios.post("http://localhost:3000/contact-form", formData);
+      console.log(response.data)
+
+      setFormData({
+        name: "",
+        email: "",
+        phone: "",
+        messge: ""
+      })
+    } catch (error) {
+      console.log("Error submitting form ", error)
+    }
   };
 
   return (
