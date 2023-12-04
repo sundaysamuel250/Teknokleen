@@ -30,6 +30,7 @@ class TestController {
   }
   static async GetTests(req, res) {
     const getTests = await TestService.GetTests();
+    console.log("here")
     return okResponse({
       res,
       message: "tests fetched succesfully",

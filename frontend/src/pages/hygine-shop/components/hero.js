@@ -3,8 +3,10 @@ import Images from "../../../constants/Images";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { HygieneBG } from "../../../constants/hygiene_images";
 import { shopImage } from "../../../constants/hygiene_shop_images";
+import { useNavigate } from "react-router-dom";
 
 const HygieneShopHero = () => {
+  const navigate = useNavigate()
   const targetRef = useRef(null);
   const { scrollYProgress } = useScroll({
     target: targetRef,
@@ -70,7 +72,7 @@ const HygieneShopHero = () => {
           </section>
         </section>
         <section className="md:flex py-12 gap-5 flex">
-          <button className="bg-[#23146D] hover:bg-[#00A5E2] hover:tracking-[1px] md:w-[203px] md:h-[64px] w-[150px] h-[40px] rounded-[10px] text-[#fff] font-normal font-['Poppins'] md:text-[16px] text-[10px] leeding-none not-italic border-none tracking-wide ">
+          <button onClick={()=>navigate("/hygiene-shop/shop")} className="bg-[#23146D] hover:bg-[#00A5E2] hover:tracking-[1px] md:w-[203px] md:h-[64px] w-[150px] h-[40px] rounded-[10px] text-[#fff] font-normal font-['Poppins'] md:text-[16px] text-[10px] leeding-none not-italic border-none tracking-wide ">
             Shop Now
           </button>
 

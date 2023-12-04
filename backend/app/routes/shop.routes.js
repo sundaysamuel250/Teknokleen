@@ -8,4 +8,17 @@ shopRoutes.get(
   catchInternalServerError(ShopController.Products)
 );
 
+shopRoutes.get(
+  ROUTES.GET_CATEGORIES,
+  catchInternalServerError(ShopController.Categories)
+);
+shopRoutes.get(
+  ROUTES.GET_CATEGORY,
+  catchInternalServerError(ShopController.Category)
+);
+
+shopRoutes.get(
+  ROUTES.GET_BRANDS,
+  catchInternalServerError(ShopController.Brands)
+);
 module.exports = shopRoutes;

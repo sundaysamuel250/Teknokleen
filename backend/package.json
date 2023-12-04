@@ -10,6 +10,7 @@
     "premigrate": "npm run run-scripts",
     "prestart": "npm run premigrate &&  npm run migrate:up",
     "run-scripts": "node ./scripts/scripts.js",
+    "seeder": "node ./scripts/seeder.js",
     "migrate:up": "db-migrate up  --config database.json -e development"
   },
   "keywords": [],

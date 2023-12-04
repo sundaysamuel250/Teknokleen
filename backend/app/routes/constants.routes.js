@@ -1,6 +1,8 @@
 const ROUTES = {
   GET_PRODUCTS: "/shop/products",
-  GET_CATEGORIES: "/shop/products",
+  GET_CATEGORIES: "/shop/categories",
+  GET_CATEGORY: "/shop/category/:category_id",
+  GET_BRANDS : "/shop/brands",
 
   GET_TESTS: "/tests",
   CREATE_TESTS: "/tests",

@@ -10,6 +10,6 @@ const contactRouter = Router();
 // API endpoint to handle form submissions
 contactRouter.post('/submit-form',
  validateRequestBody(validateCreateContact),
- ContactController.postContact()
+ ContactController.postContact
   )
 module.exports = contactRouter 

@@ -1,3 +1,3 @@
 import HygieneShop from "./landing";
-
-export { HygieneShop };
+import HygieneShopPage from './shop'
+export { HygieneShop, HygieneShopPage };
