@@ -12,6 +12,7 @@ import RegistrationForm from './pages/school/components/RegistrationForm';
 import ScrollToTop from './components/ScrollToTop';
 import { useContext } from 'react';
 import { AppContext } from './state/context';
+import HygieneShopCheckout from './pages/hygine-shop/checkout';
 
 
 function App() {
@@ -37,6 +38,8 @@ function App() {
           <Route path="hygiene-shop">
             <Route path="" element={<HygieneShop />} />
             <Route path=":category" element={<HygieneShopPage />} />
+            <Route path='checkout' element={<HygieneShopCheckout />} />
+            <Route path='checkout/:product'  element={<HygieneShopCheckout />} />
           </Route>
 
           <Route path="school">

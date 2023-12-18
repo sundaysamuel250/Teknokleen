@@ -1,14 +1,13 @@
 const router = require("express").Router();
 const nodemailer = require("nodemailer");
-
+require("dotenv").config();
 const sendMail = async ({subject, html, to, from = "Teknokleen"}) => {
-    
-var transport = nodemailer.createTransport({
-    host: "sandbox.smtp.mailtrap.io",
-    port: 2525,
+  var transport = nodemailer.createTransport({
+    host: process.env.MAILER_HOST,
+    port: process.env.MAILER_PORT,
     auth: {
-      user: "e7ba21b71248e3",
-      pass: "30b5c71be3551c"
+      user: process.env.MAILER_USER,
+      pass: process.env.MAILER_PASSWORD
     }
   });
   let mailOptions = {
@@ -18,21 +17,12 @@ var transport = nodemailer.createTransport({
     html: html
   };
 
-
-
-
-  transport.sendMail(mailOptions, (error) => {
-   
-      if (error){
-        return {
-            status: false,
-            error: error
-            }
-      }
-      return{
-        status: true,
-      }
+  var r = await transport.sendMail(mailOptions).catch((err)=> {
+    if(err){
+      return {error : err};
+    }
   });
+  return r;
 };
 
 

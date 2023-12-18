@@ -1,4 +1,4 @@
-const { okResponse } = require("../../helpers/response");
+const { okResponse, errorResponse } = require("../../helpers/response");
 const StatusCodes = require("http-status-codes");
 const CategoryService = require("../../services/category/category");
 const PCService = require("../../services/product/product_categories");
@@ -6,6 +6,11 @@ const ProductService = require("../../services/product/product");
 const simplePagination = require("../../helpers/pagination");
 const BrandService = require("../../services/brand/brand");
 const PBService = require("../../services/product/product_brands");
+const sendMail = require("../../helpers/sendMail");
+const checkoutEmailTemplate = require("../../../emailTemplate/checkoutTemplate");
+require("dotenv").config();
+
+
 class ShopController {
   static async Categories(req, res) {
    var categories = await CategoryService.GetCategories()
@@ -116,5 +121,70 @@ class ShopController {
 
     })
   }
+
+  static async Product(req, res) {
+    const {
+      params : {slug }
+    } = req;
+
+    const product = await ProductService.GetProduct([slug])
+    
+    
+     return okResponse({
+      res,
+      data : product,
+      message : "Product got",
+      status : "success",
+      statusCode: StatusCodes.OK,
+
+    })
+  }
+
+  static async Checkout(req, res) {
+    const {
+      body 
+    } = req;
+    // const formData = req.body;
+    const {
+      fullname, deliveryAddress, deliveryType, deliverydate, email, telephone, items
+    } = body;
+
+    var templatee = checkoutEmailTemplate({
+      fullname : fullname,
+      deliveryAddress : deliveryAddress,
+      deliveryType : deliveryType,
+      deliverydate : deliverydate,
+
+    });
+    // return res.send(templatee).status(200)
+
+    const sm = await sendMail({
+      subject : "NEW ORDER RECIEVED FROM " + fullname,
+      html : templatee,
+      to : process.env.TEKNO_NOTIFY,
+    })
+
+
+
+    if(sm.error){
+     return errorResponse({
+        res,
+        status : "error",
+        statusCode : StatusCodes.BAD_REQUEST,
+        message : "Checkout not possible at the moment"
+      })
+    }
+
+     return okResponse({
+      res,
+      data : sm,
+      message : "Your order was recieved successfully",
+      status : "success",
+      statusCode: StatusCodes.OK,
+
+    })
+  }
+
+  
 }
 module.exports = ShopController;

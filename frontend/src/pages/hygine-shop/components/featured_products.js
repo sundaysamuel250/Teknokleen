@@ -6,7 +6,7 @@ import { washableBrush } from "../../../constants/hygiene_shop_images";
 import { productList } from "../../../data/products";
 import { useContext, useEffect, useState } from "react";
 import { alpha, httpGetWithoutToken } from "../../../utils/http_util";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { AppContext } from "../../../state/context";
 import { ProductView } from "./product";
 function FeaturedProduct() {
@@ -42,23 +42,24 @@ function FeaturedProduct() {
 
   const searchChange = (e)=> {
     var key = e.key;
-    // console.log(alpha)
-    if(!alpha.includes(key.toLowerCase())) return false;
-    const newWord = search+e.key
-    setSearch(newWord)
-    console.log(newWord)
-    if(newWord > 2) {
-      setUseSearch(newWord)
-    }else{
-      setUseSearch("")
-    }
+    // console.log(e)
+    // if(!alpha.includes(key.toLowerCase())) return false;
+    // const newWord = search+e.key
+    // setSearch(newWord)
+    // console.log(newWord)
+    // if(newWord > 2) {
+    //   setUseSearch(newWord)
+    // }else{
+    //   setUseSearch("")
+    // }
 
   } 
   const inCart = (id)=> {
     const isExist = cart.find((c)=> c.id === id)
     return isExist ? true : false;
   }
-  const addToCart = (item) => {
+  const addToCart = (item, qty = 1) => {
+    item.qty = qty;
     if(inCart(item.id)){
 
       return;
@@ -67,12 +68,14 @@ function FeaturedProduct() {
     setLoadingid(item.id)
     setTimeout(()=> {
       updateCart(item)
+      alert("Cart updated")
     }, 1000)
   }
+  
   return (
     <div className="container font-['poppins'] px-3 lg:px-auto mx-auto">
       <div className={`${params.category ?"my-[50px]" : "my-[50px]" }`}>
-       {product &&  <ProductView close={()=>setProduct(null)} product={product} />}
+       {product &&  <ProductView inCart={inCart(product?.id)} addToCart={(item, qty)=>addToCart(item, qty)} close={()=>setProduct(null)} product={product} />}
         <div className="flex gap-5 lg:items-center flex-col lg:flex-row">
           {
            !params.category || params.category == "shop" ? <div>
@@ -106,21 +109,23 @@ function FeaturedProduct() {
             <div className="flex gap-3 lg:gap-1 whitespace-no-wrap min-w-[300px] justify-end items-center cursor-[pointer]">
               <SortByDropdown /> &nbsp;
               {/* cart button */}
+              <Link to={"/hygiene-shop/checkout"}>
               <div className="flex relative gap-2 items-center">
                 <FaCartShopping color="#23146D" size={"20px"} />{" "}
                 <span>Cart</span>
                 <span className="absolute rounded-[100%] text-[14px] flex text-white d-flex justify-center items-center bg-[red] min-h-[20px] min-w-[20px] top-[-10px] left-[10px]">{cart.length}</span>
               </div>
+              </Link>
             </div>
           </div>
         </div>
 
         <div className="my-[30px] flex justify-center ">
           <ul className="cursor-['pointer'] flex justify-center gap-3 text-[#23146D] text-[14px]">
-            <li onClick={()=>setBrand("")} className={`${brand == "" ? "font-bold text-[#23146D]" : "" }`}>All</li>
+            <li onClick={()=>setBrand("")} className={`${brand == "" ? "font-bold cursor-[pointer] text-[#23146D]" : "" } cursor-[pointer]`}>All</li>
             {
               brands.map((item)=> (
-            <li key={item.slug} onClick={()=>setBrand(item.slug)} className={`${brand == item.slug ? "font-bold text-[#23146D]" : "" }`}>{item.name}</li>
+            <li key={item.slug} onClick={()=>setBrand(item.slug)} className={`${brand == item.slug ? "font-bold  text-[#23146D]" : "" } cursor-[pointer]`}>{item.name}</li>
               ))
             }
           </ul>

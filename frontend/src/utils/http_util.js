@@ -21,7 +21,8 @@ export const httpPostWithoutToken = async (url, data) => {
         error?.response?.data?.message;
       return {
         error: msg,
-        status: error?.response?.status,
+        status: error?.response?.data.status,
+        statusCode: error?.response?.data.statusCode,
       };
     });
 };

@@ -2,9 +2,8 @@ const db = require("../../../config/mysql");
 const productQueries = require("../../queries/products/product");
 class ProductService {
   static async GetProduct(data) {
-    console.log(productQueries.getProduct(data))
     const q = await db.query(productQueries.getProduct(data));
-    console.log("Quering database to select all test");
+    console.log("Quering database to select a test");
     return q;
   }
 
