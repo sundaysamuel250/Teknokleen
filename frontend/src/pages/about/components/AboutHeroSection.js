@@ -68,8 +68,8 @@ const AboutHeroSection = () => {
           initial={{ opacity: 0, scale: 0.5 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 3 }}
-          className="md:absolute relative lg:left-[-8rem]  left-0 md:p-[] md:left-0 md:right-5  md:w-[554px] md:h-[746px]  w-[300px] h-[300px] ">
-          <img src={Images.Woman_home}  alt="picture"/>
+          className="md:absolute relative lg:left-[-4rem] lg:top-[2rem]  left-0 md:p-[] md:left-0 md:right-5  md:w-[554px] md:h-[746px]  w-[300px] h-[300px] ">
+          <img src={Images.About_usBG}  alt="picture"/>
           </motion.div>
           <div className="">
         <svg xmlns="http://www.w3.org/2000/svg" className="md:w-[554px] md:h-[650px] w-[200px] h-[200px]" viewBox="0 0 554 746" fill="none">

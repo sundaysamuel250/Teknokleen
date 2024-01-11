@@ -1,14 +1,14 @@
 const router = require("express").Router();
 const nodemailer = require("nodemailer");
 
-const sendMail = async ({subject, html, to, from = "Teknokleen"}) => {
+const sendMail = async ({subject, html, to="orinamesunday360@gmail.com", from = "Teknokleen"}) => {
     
 var transport = nodemailer.createTransport({
     host: "sandbox.smtp.mailtrap.io",
     port: 2525,
     auth: {
-      user: "e7ba21b71248e3",
-      pass: "30b5c71be3551c"
+      user: "orinamesunday360@gmail.com",
+      pass: "jhwgoeovlwjbcgmi"
     }
   });
   let mailOptions = {

@@ -1,4 +1,4 @@
-import HygieneBG from "../assets/hygiene/hygiene_bg.png";
+import HygieneBG from "../assets/hygiene-bg.png";
 import dhl from "../assets/hygiene/dhl.png";
 import seplat from "../assets/hygiene/seplat.png";
 import jobberman from "../assets/hygiene/jobberman.png";

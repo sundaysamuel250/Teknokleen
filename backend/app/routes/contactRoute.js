@@ -3,13 +3,14 @@ const { Router } = require('express');
 const validateRequestBody = require('../helpers/validateRequestBody');
 const { validateCreateContact } = require('../../validators/contact.validators');
 const ContactController = require('../controllers/contact/contactContoller');
+const { catchInternalServerError } = require('../middlewares/catchError');
 const contactRouter = Router();
 
 
 
 // API endpoint to handle form submissions
-contactRouter.post('/submit-form',
- validateRequestBody(validateCreateContact),
- ContactController.postContact()
+contactRouter.post('/contact-form',
+ validateRequestBody(validateCreateContact, "payload" ),
+ catchInternalServerError(ContactController.postContact)
   )
-module.exports = contactRouter 
+module.exports = contactRouter; 

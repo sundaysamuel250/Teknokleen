@@ -14,44 +14,35 @@ const BranchSection = () => {
             <h2 className="text-center font-['Poppins'] text-[24px] font-[700] tracking-[0.2px] text-[#0D1111] leading-32">
               Head Office
             </h2>
-            <p className="text-center font-['Poppins'] text-16 text-[#4f4f4f] leading-28">
-              Plot 2, Oriwu Street, Lekki, Lagos.
+            <p className="text-center font-['Poppins'] text-14 text-[#4f4f4f] leading-28">
+              Plot 2, Oriwu Street, Lekki, Lagos.<br /> +234 14536549, +234 7031209591, +234 8038440430, +234 7068571371
             </p>
-            <p className="text-center font-['Poppins'] text-16 text-[#4f4f4f] leading-28">
-              +234 14536549, +234 7031209591, +234 8038440430, +234 7068571371
-            </p>
-            <p className="text-center font-['Poppins'] text-16 text-[#23146D] font-bold leading-[27.2px]">
+            <p className="text-center font-['Poppins'] text-14 text-[#23146D] font-bold leading-[27.2px]">
               teknokleen@teknokleen.com
             </p>
           </div>
 
           <div>
             <h2 className="text-center font-['Poppins'] text-[24px] font-[700] tracking-[0.2px] text-[#0D1111] leading-32">
-              Branch office
+              Surulere office
             </h2>
-            <p className="text-center font-['Poppins'] text-16 text-[#4f4f4f] leading-28">
-              37A, Bode Thomas Street, Surulere Lagos
+            <p className="text-center font-['Poppins'] text-14 text-[#4f4f4f] leading-28">
+              37A, Bode Thomas Street, Surulere Lagos. +234 8148674254, <br /> +234 80384404303
             </p>
-            <p className="text-center font-['Poppins'] text-16 text-[#4f4f4f] leading-28">
-              +234 8148674254, +234 8038440430
+            <p className="text-center font-['Poppins'] text-14 text-[#23146D] font-bold leading-[27.2px]">
+            teknokleen@teknokleen.com
             </p>
-            <p className="text-center font-['Poppins'] text-16 text-[#23146D] font-bold leading-[27.2px]">
+          </div>
+
+          <div>
+            <h2 className="text-center font-['Poppins'] text-[24px] font-[700] tracking-[0.2px] text-[#0D1111] leading-32">
+              Abuja Office 
+            </h2>
+            <p className="text-center font-['Poppins'] text-14 text-[#4f4f4f] leading-28">
+              Plot 283, Addis Ababa Crescent Zone 4, Wuse, Abuja F.C.T. <br />+234 9030891942, +234 8038440430
+            </p>
+            <p className="text-center font-['Poppins'] text-14 text-[#23146D] font-bold leading-[27.2px]">
             abujateknokleen@teknokleen.com
-            </p>
-          </div>
-
-          <div>
-            <h2 className="text-center font-['Poppins'] text-[24px] font-[700] tracking-[0.2px] text-[#0D1111] leading-32">
-              Branch Office (Abuja)
-            </h2>
-            <p className="text-center font-['Poppins'] text-16 text-[#4f4f4f] leading-28">
-              Plot 283, Addis Ababa Crescent Zone 4, Wuse, Abuja F.C.T.
-            </p>
-            <p className="text-center font-['Poppins'] text-16 text-[#4f4f4f] leading-28">
-              +234 9030891942, +234 8038440430
-            </p>
-            <p className="text-center font-['Poppins'] text-16 text-[#23146D] font-bold leading-[27.2px]">
-              teknokleen@teknokleen.com
             </p>
           </div>
 
@@ -59,13 +50,13 @@ const BranchSection = () => {
             <h2 className="text-center font-['Poppins'] text-[24px] font-[700] tracking-[0.2px] text-[#0D1111] leading-32">
               Portharcourt Office
             </h2>
-            <p className="text-center font-['Poppins'] text-16 text-[#4f4f4f] leading-28">
+            <p className="text-center font-['Poppins'] text-14 text-[#4f4f4f] leading-28">
             55, Old Aba Express way, Behind Shandees, Port Harcourt, Rivers State.
             </p>
-            <p className="text-center font-['Poppins'] text-16 text-[#4f4f4f] leading-28">
+            <p className="text-center font-['Poppins'] text-14 text-[#4f4f4f] leading-28">
             +234 8145349973, +234 8038440430
             </p>
-            <p className="text-center font-['Poppins'] text-16 text-[#23146D] font-bold leading-[27.2px]">
+            <p className="text-center font-['Poppins'] text-14 text-[#23146D] font-bold leading-[27.2px]">
             ph@teknokleen.com
             </p>
           </div>

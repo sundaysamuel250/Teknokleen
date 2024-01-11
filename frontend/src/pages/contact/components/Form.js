@@ -11,23 +11,18 @@ function Form() {
   });
 
   const handleChange = (e) => {
-    const { name, value } = e.target;
+    const name = e.target.name;
+    const value = e.target.value;
     setFormData({ ...formData, [name]: value });
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    // Handle form submission here
     try {
-      const response = await axios.post("http://localhost:3000/contact-form", formData);
-      console.log(response.data)
+      const response = await axios.post("http://localhost:9000/contact-form", formData);
+      console.log(response, "Form submitted successfully")
 
-      setFormData({
-        name: "",
-        email: "",
-        phone: "",
-        messge: ""
-      })
+    
     } catch (error) {
       console.log("Error submitting form ", error)
     }

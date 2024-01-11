@@ -2,6 +2,7 @@ import React, {useRef} from "react";
 import Images from "../../../constants/Images";
 import {motion, useScroll, useTransform} from "framer-motion"
 import { HygieneBG } from "../../../constants/hygiene_images";
+// import { HygieneBG } from "../../../constants/hygiene_images";
 
 const HeroSection = () => {
    const targetRef = useRef(null)
@@ -73,7 +74,7 @@ const HeroSection = () => {
           initial={{ opacity: 1, scale: 0.5 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 3 }}
-          className="md:absolute relative lg:left-[-2rem]  left-0 md:p-[] md:left-0 lg:top-20 top-0 md:right-5 lg:w-[667px] lg:h-[567px] md:w-[554px] md:h-[746px]  w-[300px] h-[300px] ">
+          className="md:absolute relative lg:left-[-8rem]  left-0 md:p-[] md:left-0 lg:top-20 top-0 md:right-5 lg:w-[667px] lg:h-[567px] md:w-[554px] md:h-[746px]  w-[300px] h-[300px] ">
           <img src={HygieneBG} alt="picture"/>
           </motion.div>
           <div className="">

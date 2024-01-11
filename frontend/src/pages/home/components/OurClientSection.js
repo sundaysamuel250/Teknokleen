@@ -94,6 +94,16 @@ const OurClientSection = () => {
             <div className="slide">
               <img src={Images.Swift} alt="swift" />
             </div>
+            <div className="slide">
+              <img src={Images.Bet_king} alt="Betking_king" />
+            </div>
+            <div className="slide">
+              <img src={Images.Tvc} alt="tvc-news" />
+            </div>
+            <div className="slide">
+              <img src={Images.Cardinal_stone} alt="Cardinalstone" />
+            </div>
+          
           </div>
         </motion.div>
       </div>

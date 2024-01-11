@@ -47,7 +47,7 @@ const HeroSection = () => {
               <br />
               <div className="h-[100px] w-[100px] bg-[#00A5E2] rounded-[50%] opacity-[0.7] blur-[67px] absolute lg:left-[40%] md:left-[60%]" />
               <div className="lg:h-[20px] lg:w-[300px] h-[6px] w-[90px] bg-[#FFC640] absolute md:left-[4%] left-[10px] lg:top-[78%] top-[76%]  -z-30" />
-              <b>Corperate Cleaning...</b>
+              <b>Corporate Cleaning...</b>
             </motion.h1>
             <motion.p
               initial={{ x: -999 }}
@@ -59,7 +59,7 @@ const HeroSection = () => {
               className="md:w-[513px] italic md:text-[16px] text-[10px] font-['Poppins'] lg:leading-[30px] md:leading-[30px] leading-[16px] text-[#4F4F4F] "
             >
               We provide comprehensive solutions for corporate cleaning,
-              including sales and distribution of equipment, products, and
+              including sales and distribution of equipment, products.
               expert training and consultancy services.
             </motion.p>
           </section>
@@ -94,9 +94,9 @@ const HeroSection = () => {
             initial={{ opacity: 0, scale: 0.5 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 3 }}
-            className="md:absolute relative lg:left-[-2rem]  left-0 md:p-[] md:left-0 lg:top-20 top-4 md:right-5 lg:w-[667px] lg:h-[567px] md:w-[554px] md:h-[746px]  w-[300px] h-[300px] "
+            className="md:absolute relative lg:left-[-2rem]  left-0 md:p-[] md:left-0 lg:top-20 top-4 md:right-5 lg:w-[500px] lg:h-[500px] md:w-[554px] md:h-[300px]  w-[300px] h-[300px] "
           >
-            <img src={Images.Home} alt="picture" />
+            <img src={Images.Home} alt="picture" className="w-[90%]" />
           </motion.div>
           <div className="">
             <svg
