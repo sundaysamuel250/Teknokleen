@@ -10,7 +10,10 @@ const dbConfig = {
   port: process.env.DATABASE_PORT,
 };
 // var db = mysql.createConnection(dbConfig);
+<<<<<<< HEAD
 
+=======
+>>>>>>> origin/shopbe
 async function query(sql, params = null) {
   const connection = await mysql.createConnection(dbConfig);
   const res = await connection.execute(sql, params);

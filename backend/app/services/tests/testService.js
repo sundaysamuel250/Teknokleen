@@ -2,8 +2,13 @@ const db = require("../../../config/mysql");
 const testQueries = require("../../queries/testQueries/test");
 class TestService {
   static async GetTests() {
+<<<<<<< HEAD
     console.log("Quering database to select all test");
     const q = await db.query(testQueries.getAllTest);
+=======
+    const q = await db.query(testQueries.getAllTest);
+    console.log("Quering database to select all test");
+>>>>>>> origin/shopbe
     return q;
   }
 

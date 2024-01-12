@@ -30,6 +30,10 @@ class TestController {
   }
   static async GetTests(req, res) {
     const getTests = await TestService.GetTests();
+<<<<<<< HEAD
+=======
+    console.log("here")
+>>>>>>> origin/shopbe
     return okResponse({
       res,
       message: "tests fetched succesfully",

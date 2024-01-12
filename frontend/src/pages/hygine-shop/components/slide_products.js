@@ -1,6 +1,10 @@
 import Slider from "react-slick";
 import { washableBrush } from "../../../constants/hygiene_shop_images";
+import { useEffect, useState } from "react";
+import { httpGetWithoutToken } from "../../../utils/http_util";
+import { Link } from "react-router-dom";
 function SlideProducts() {
+  const [categories, setCategories] = useState([])
   const settings = {
     dots: true,
     navs: true,
@@ -11,28 +15,37 @@ function SlideProducts() {
     slidesToScroll:
       window.innerWidth > 920 ? 3 : window.innerHeight > 890 ? 2 : 1,
   };
+  useEffect(()=> {
+    fetchConstants()
+  }, [])
+  const fetchConstants = async ()=> {
+    const resp = await httpGetWithoutToken("shop/categories")
+    if(resp.statusCode == 200){
+      setCategories(resp.data)
+    }
+  }
   return (
     <div className="container mx-auto mt-[50px]">
       <div className="w-full overflow-hidden py-5">
         <Slider {...settings}>
-          {[1, 2, 3, 4, 5].map((item, i) => (
-            <div className="p-3 ">
+          {categories.map((item, i) => (
+            <Link to={"/hygiene-shop/"+item.slug} className="p-3 ">
               <div
                 style={{ border: "1px solid #6EC1E4" }}
                 className="flex mx-auto max-w-[400px] items-center justify-between p-3 px-5 bg-white rounded-[15px]"
               >
                 <img
-                  src={washableBrush}
+                  src={item.image}
                   className="h-[94px] max-w-[240px] object-contain"
                 />
                 <div className="">
                   <h3 className="text-[#23146D] font-[poppins] text-[17px]">
-                  Washable brush
+                  {item.name}
                   </h3>
-                  <p>(6 Items)</p>
+                  <p>({item.items} Items)</p>
                 </div>
               </div>
-            </div>
+            </Link>
           ))}
         </Slider>
       </div>
