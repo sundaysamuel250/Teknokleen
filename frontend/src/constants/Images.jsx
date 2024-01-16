@@ -1,6 +1,5 @@
 import Logo from "../assets/logo.png"
 import Home from "../assets/Home-bg.png"
-import Home from "../assets/home.png"
 import ImgBG from "../assets/bg.png"
 import cleaning_service from "../assets/cleaning.png"
 import hygiene_market from "../assets/hygiene_market.png"
@@ -33,9 +32,6 @@ import Mega_plaza from "../assets/Mega-Plaza-online-mall-Logo.png"
 import Choose from "../assets/chooose.svg"
 import LearnAbout from "../assets/let's.png"
 import About_usBG from "../assets/about_bg.png"
-import Choose from "../assets/chooose.svg"
-import LearnAbout from "../assets/let's.png"
-import Woman_home from "../assets/About_hero_image.png"
 import Digital_service from "../assets/digital-service.png"
 import Mission from "../assets/mission_img.svg"
 import Team from "../assets/team.jpg"
@@ -96,8 +92,6 @@ export default {
     Mega_plaza,
     LearnAbout,
     About_usBG,
-    LearnAbout,
-    Woman_home,
     Digital_service,
     Mission,
     Team,

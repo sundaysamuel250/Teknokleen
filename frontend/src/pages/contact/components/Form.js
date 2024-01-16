@@ -11,6 +11,7 @@ function Form() {
   });
 
   const handleChange = (e) => {
+    const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
   };
 
@@ -18,7 +19,7 @@ function Form() {
     e.preventDefault();
     // Handle form submission here
     try {
-      const response = await axios.post("http://localhost:3000/contact-form", formData);
+      const response = await axios.post("http://localhost:9000/contact-form", formData);
       console.log(response.data)
 
       setFormData({

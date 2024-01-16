@@ -1,8 +1,5 @@
 const bodyParser = require("body-parser");
-<<<<<<< HEAD
-=======
 const express = require("express");
->>>>>>> origin/shopbe
 const helmet = require("helmet");
 const ROUTES = require("../app/routes/constants.routes.js");
 const allRoutes = require("../app/routes/index.js");
@@ -10,13 +7,8 @@ const invalidRoute = require("../app/helpers/index.js");
 
 const expressConfig = (app) => {
   app.use(bodyParser.json());
-<<<<<<< HEAD
-  app.use(bodyParser.urlencoded({ extended: false }));
-
-=======
   app.use(bodyParser.urlencoded({ extended: true }));
   app.use(express.json())
->>>>>>> origin/shopbe
   // Use helmet to secure Express headers
   app.use(helmet());
   app.disable("x-powered-by");

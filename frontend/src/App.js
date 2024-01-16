@@ -6,10 +6,6 @@ import Career from "./pages/career/Career";
 import Contact from "./pages/contact/Contact"
 import { Blog } from "./pages/blog/Blog";
 import { HygieneLanding } from "./pages/hygiene";
-import { HygieneShop } from "./pages/hygine-shop";
-import { Courses, School } from "./pages/school";
-import RegistrationForm from './pages/school/components/RegistrationForm';
-import ScrollToTop from './components/ScrollToTop';
 import { HygieneShop, HygieneShopPage } from "./pages/hygine-shop";
 import { Courses, School } from "./pages/school";
 import RegistrationForm from './pages/school/components/RegistrationForm';

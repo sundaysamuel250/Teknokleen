@@ -10,10 +10,7 @@
     "premigrate": "npm run run-scripts",
     "prestart": "npm run premigrate &&  npm run migrate:up",
     "run-scripts": "node ./scripts/scripts.js",
-<<<<<<< HEAD
-=======
     "seeder": "node ./scripts/seeder.js",
->>>>>>> origin/shopbe
     "migrate:up": "db-migrate up  --config database.json -e development"
   },
   "keywords": [],

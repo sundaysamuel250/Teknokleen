@@ -5,17 +5,10 @@
 	  "development": {
 		"host": "localhost",
 		"user": "root",
-<<<<<<< HEAD
-		"password" : "root",
-		"database": "teknokleen",
-		"driver": "mysql",
-		"port": "8889",
-=======
 		"password" : "",
 		"database": "teknokleen",
 		"driver": "mysql",
 		"port": "3306",
->>>>>>> origin/shopbe
 		"multipleStatements": true
 	},
 	"test": {

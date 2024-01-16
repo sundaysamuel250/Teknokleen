@@ -1,10 +1,3 @@
-<<<<<<< HEAD
-class ShopController {
-  static async Categories(req, res) {}
-  static async Products(req, res) {
-    res.json("products").status(200);
-  }
-=======
 const { okResponse, errorResponse } = require("../../helpers/response");
 const StatusCodes = require("http-status-codes");
 const CategoryService = require("../../services/category/category");
@@ -193,6 +186,5 @@ class ShopController {
   }
 
   
->>>>>>> origin/shopbe
 }
 module.exports = ShopController;

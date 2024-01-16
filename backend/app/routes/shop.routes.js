@@ -1,22 +1,14 @@
 const { Router } = require("express");
-<<<<<<< HEAD
-=======
 const validateRequestBody = require('../helpers/validateRequestBody');
->>>>>>> origin/shopbe
 const ROUTES = require("./constants.routes.js");
 const shopRoutes = Router();
 const ShopController = require("../controllers/shop/shopController.js");
 const { catchInternalServerError } = require("../middlewares/catchError.js");
-<<<<<<< HEAD
-=======
 const { checkoutValidator } = require("../../validators/shop.validators.js");
->>>>>>> origin/shopbe
 shopRoutes.get(
   ROUTES.GET_PRODUCTS,
   catchInternalServerError(ShopController.Products)
 );
-<<<<<<< HEAD
-=======
 shopRoutes.get(
   ROUTES.GET_PRODUCT,
   catchInternalServerError(ShopController.Product)
@@ -42,6 +34,5 @@ shopRoutes.post(
   catchInternalServerError(ShopController.Checkout)
 );
 
->>>>>>> origin/shopbe
 
 module.exports = shopRoutes;
