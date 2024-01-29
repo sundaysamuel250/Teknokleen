@@ -139,7 +139,6 @@ class ShopController {
 
     })
   }
-
   static async Checkout(req, res) {
     const {
       body 

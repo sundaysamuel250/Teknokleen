@@ -1,6 +1,6 @@
 const _ = require("lodash")
 
-const contactEmailTemplate = _.template(`
+const applicationEmailTemplate = _.template(`
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional //EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html
   xmlns="http://www.w3.org/1999/xhtml"
@@ -100,16 +100,18 @@ const contactEmailTemplate = _.template(`
           <tr>
             <td style="vertical-align: top" width="100%">
               <p>
-              <%= name %> just send a contact message
+              <%= firstname %> 
+              <%= lastname %> 
+              just send a contact message
               </p>
               <p>
               Email : <%= email %>
               </p>
               <p>
-               Phone Number:  <%= phone %>
+              Message: <%= message %>
               </p>
               <p>
-              Message: <%= message %>
+              Resume(CV): <%= resume %>
               </p>
             </td>
           </tr>
@@ -125,4 +127,4 @@ const contactEmailTemplate = _.template(`
   </body>
 </html>
 `);
-module.exports = contactEmailTemplate;
+module.exports = applicationEmailTemplate;

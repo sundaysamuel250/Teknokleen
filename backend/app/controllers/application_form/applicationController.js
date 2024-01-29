@@ -1,27 +1,28 @@
 const mysql = require("../../../config/mysql");
 const db = require("../../../config/mysql");
-const contactEmailTemplate = require("../../../emailTemplate/contactEmail");
-const sendMail = require("../../helpers/sendMail");
+const applicationEmailTemplate = require("../../../emailTemplate/applicationTemplate");
 const nodemailer = require('nodemailer');
+const sendMail = require("../../helpers/sendMail");
 
-class ContactController {
+class ApplicationController {
 
-  static async postContact(req, res) {
+  static async postApplication(req, res) {
     try {
-      let formData = req.body;
+      let formDataWithFile= req.body;
       // Creating the HTML content for the email using the contactEmailTemplate
-      let html = contactEmailTemplate({
-        name: formData.name,
-        email: formData.email,
-        phone: formData.phone,
-        message: formData.message,
+      let html = applicationEmailTemplate({
+        firstname: formDataWithFile.firstname,
+        lastname: formDataWithFile.lastname,
+        email: formDataWithFile.email,
+        message: formDataWithFile.message,
+        resume: formDataWithFile.file
       });
 
       // Sending email using Nodemailer
       await sendMail({
-        from: formData.email,
+        from: formDataWithFile.email,
         to: 'orinamesunday360@gmail.com', // Update with your Mailtrap inbox email
-        subject: `Message from ${formData.name}`,
+        subject: `Message from ${formDataWithFile.firstname}`,
         html: html
       });
 
@@ -35,4 +36,4 @@ class ContactController {
   }
 }
 
-module.exports = ContactController;
+module.exports = ApplicationController;
