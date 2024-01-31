@@ -5,10 +5,10 @@
 	  "development": {
 		"host": "localhost",
 		"user": "root",
-		"password" : "",
+		"password" : "root",
 		"database": "teknokleen",
 		"driver": "mysql",
-		"port": "3306",
+		"port": "8889",
 		"multipleStatements": true
 	},
 	"test": {

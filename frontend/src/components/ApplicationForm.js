@@ -1,8 +1,17 @@
 import React, { useState } from 'react';
-import { FaTimes } from "react-icons/fa";
+import { FaTimes } from 'react-icons/fa';
 import Images from '../constants/Images';
+import axios from 'axios';
+
 const ApplicationForm = ({ isOpen, onClose }) => {
-    const [selectedFile, setSelectedFile] = useState(null);
+  const [selectedFile, setSelectedFile] = useState(null);
+  const [formData, setFormData] = useState({
+    firstname: '',
+    lastname: '',
+    email: '',
+    message: '',
+    resume: null
+  });
 
   const handleFileChange = (e) => {
     const file = e.target.files[0];
@@ -25,46 +34,59 @@ const ApplicationForm = ({ isOpen, onClose }) => {
     fileInputRef.current.click();
   };
 
-    const [formData, setFormData] = useState({
-        firstname: "",
-        lastname: "",
-        email: "",
-        phone: "",
-        location: "",
-        message: "",
-      });
-    
-      const handleChange = (e) => {
-        const { name, value } = e.target;
-        setFormData({ ...formData, [name]: value });
-      };
-    
-      const handleSubmit = (e) => {
-        e.preventDefault();
-        // Handle form submission here
-        onClose()
-      };
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prevData) => ({ ...prevData, [name]: value }));
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    try {
+      // Validate file type (only allow PDF files for example)
+      if (selectedFile && selectedFile.type === 'application/pdf') {
+        const formDataWithFile = new FormData();
+        formDataWithFile.append('file', selectedFile);
+        formDataWithFile.append('firstname', formData.firstname);
+        formDataWithFile.append('lastname', formData.lastname);
+        formDataWithFile.append('email', formData.email);
+        formDataWithFile.append('message', formData.message);
+
+        const response = await axios.post("http://localhost:9000/api/application-form", formDataWithFile, {
+          headers: {
+            'Content-Type': 'multipart/form-data',
+          },
+        });
+
+        console.log(response);
+
+        setFormData({
+          firstname: '',
+          lastname: '',
+          email: '',
+          message: '',
+          resume: null
+        });
+        setSelectedFile(null);
+      } else {
+        console.error('Invalid file type. Please upload a PDF file.');
+      }
+    } catch (error) {
+      console.error('Error submitting form ', error);
+    }
+    onClose();
+  };
 
   return (
-    <div
-      className={`${
-        isOpen ? 'block' : 'hidden'
-      } fixed inset-0 w-full h-full z-50 overflow-auto bg-black bg-opacity-50 flex`}
-    >
+    <div className={`fixed inset-0 w-full h-full z-50 overflow-auto bg-black bg-opacity-50 flex ${isOpen ? 'block' : 'hidden'}`}>
       <div className="relative lg:pl-20 md:pl-10 pl-10 pt-8 w-[80%] h-[80%] bg-white rounded-lg m-auto flex gap-20">
-        <button
-          className="absolute top-0 right-0 p-2 m-3 text-[18px] w-[40px] h-[40px] rounded-[50px] bg-[#23146D] text-[#fff] hover:text-red-500 flex items-center justify-center"
-          onClick={onClose}
-        >
+        <button className="absolute top-0 right-0 p-2 m-3 text-[18px] w-[40px] h-[40px] rounded-[50px] bg-[#23146D] text-[#fff] hover:text-red-500 flex items-center justify-center" onClick={onClose}>
           <FaTimes />
         </button>
         <form className="mt-4" onSubmit={handleSubmit}>
-        <div className="lg:flex flex-col sm:flex-row gap-8 lg:space-y-0 space-y-[2rem]">
+          <div className="lg:flex flex-col sm:flex-row gap-8 lg:space-y-0 space-y-[2rem]">
             <div>
-              <label
-                htmlFor="name"
-                className="block text-[16px] text-[#4F4F4F] font-['Poppins'] font-[700]"
-              >
+              <label htmlFor="firstname" className="block text-[16px] text-[#4F4F4F] font-['Poppins'] font-[700]">
                 First name
               </label>
               <input
@@ -81,11 +103,8 @@ const ApplicationForm = ({ isOpen, onClose }) => {
             </div>
 
             <div>
-              <label
-                htmlFor="lastname"
-                className="block text-[16px] text-[#4F4F4F]  font-['Poppins'] font-[700]"
-              >
-               Last name
+              <label htmlFor="lastname" className="block text-[16px] text-[#4F4F4F] font-['Poppins'] font-[700]">
+                Last name
               </label>
               <input
                 type="text"
@@ -101,29 +120,23 @@ const ApplicationForm = ({ isOpen, onClose }) => {
             </div>
           </div>
           <div>
-              <label
-                htmlFor="lastname"
-                className="block text-[16px] text-[#4F4F4F]  font-['Poppins'] font-[700]"
-              >
-               Email
-              </label>
-              <input
-                type="text"
-                id="email"
-                name="email"
-                autoComplete="none"
-                placeholder="you@company.com"
-                value={formData.lastname}
-                onChange={handleChange}
-                required
-                className="mt-1 rounded-[8px] block lg:w-[430px] md:w-[570px]  w-[250px] lg:h-[50px] md:h-[56px] h-[40px] lg:text-[16px] text-[12px] border border-solid border-gray-300 bg-white p-4 shadow-sm focus:ring focus:ring-blue-200 focus:outline-none"
-              />
-            </div>
+            <label htmlFor="email" className="block text-[16px] text-[#4F4F4F]  font-['Poppins'] font-[700]">
+              Email
+            </label>
+            <input
+              type="text"
+              id="email"
+              name="email"
+              autoComplete="none"
+              placeholder="you@company.com"
+              value={formData.email}
+              onChange={handleChange}
+              required
+              className="mt-1 rounded-[8px] block lg:w-[430px] md:w-[570px]  w-[250px] lg:h-[50px] md:h-[56px] h-[40px] lg:text-[16px] text-[12px] border border-solid border-gray-300 bg-white p-4 shadow-sm focus:ring focus:ring-blue-200 focus:outline-none"
+            />
+          </div>
           <div>
-            <label
-              htmlFor="message"
-              className="block text-[16px] text-[#4F4F4F] font-['Poppins'] font-[700]"
-            >
+            <label htmlFor="message" className="block text-[16px] text-[#4F4F4F] font-['Poppins'] font-[700]">
               Your message
             </label>
             <textarea
@@ -138,29 +151,23 @@ const ApplicationForm = ({ isOpen, onClose }) => {
             ></textarea>
           </div>
           <div className="space-y-4">
-      <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="fileInput">
-        Click to upload or drag and drop your file here:
-      </label>
-      <div
-        className="lg:w-[430px] lg:h-[128px] md:w-[570px] md:h-[200px] h-[128px] w-[250px] px-8 border border-dashed border-gray-300 rounded-lg flex items-center justify-center cursor-pointer"
-        onClick={handleClickToUpload}
-        onDrop={handleFileDrop}
-        onDragOver={preventDefault}
-      >
-        {selectedFile ? (
-          <p className="text-sm text-gray-600">Selected file: {selectedFile.name}</p>
-        ) : (
-          <p className="text-sm text-gray-600">Drag and drop your file here or click to select a file</p>
-        )}
-      </div>
-      <input
-        id="fileInput"
-        type="file"
-        onChange={handleFileChange}
-        ref={fileInputRef}
-        className="hidden"
-      />
-    </div>
+            <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="fileInput">
+              Click to upload CV or drag and drop your CV here:
+            </label>
+            <div
+              className="lg:w-[430px] lg:h-[128px] md:w-[570px] md:h-[200px] h-[128px] w-[250px] px-8 border border-dashed border-gray-300 rounded-lg flex items-center justify-center cursor-pointer"
+              onClick={handleClickToUpload}
+              onDrop={handleFileDrop}
+              onDragOver={preventDefault}
+            >
+              {selectedFile ? (
+                <p className="text-sm text-gray-600">Selected file: {selectedFile.name}</p>
+              ) : (
+                <p className="text-sm text-gray-600">Drag and drop your file here or click to select a file</p>
+              )}
+            </div>
+            <input id="fileInput" accept=".pdf" type="file" onChange={handleFileChange} ref={fileInputRef} className="hidden" />
+          </div>
           <button
             type="submit"
             className="bg-[#23146D] text-white lg:w-[430px] md:w-[570px] w-[250px] py-2 px-4 mt-6 rounded-md hover:bg-blue-600"
@@ -168,7 +175,7 @@ const ApplicationForm = ({ isOpen, onClose }) => {
             Submit
           </button>
         </form>
-        <img src={Images.Applicate_IMG} className='mb-8 lg:block hidden' />
+        <img src={Images.Applicate_IMG} className="mb-8 lg:block hidden" alt="Application" />
       </div>
     </div>
   );

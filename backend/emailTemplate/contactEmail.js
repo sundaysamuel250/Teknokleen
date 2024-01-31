@@ -1,6 +1,6 @@
-const template = require("lodash")
+const _ = require("lodash")
 
-const contactEmailTemplate = template(`
+const contactEmailTemplate = _.template(`
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional //EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html
   xmlns="http://www.w3.org/1999/xhtml"
@@ -78,7 +78,7 @@ const contactEmailTemplate = template(`
             <td align="center" style="padding: 0; width: 24px">
               <!-- Your logo is here -->
               <img
-                src="https://res.cloudinary.com/dq9rackyr/image/upload/v1680771509/zdj54hutslcjskkpjnfe.png"
+                src="https://asset.brandfetch.io/id8z35-SXX/idaaeOQCTE.png"
                 alt="logo"
               />
             </td>

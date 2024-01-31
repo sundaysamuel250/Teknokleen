@@ -2,6 +2,7 @@ import React from 'react'
 import Images from '../../../constants/Images'
 import { FaFacebook, FaInstagram, FaLinkedin} from "react-icons/fa6";
 import {AiFillTwitterCircle} from "react-icons/ai"
+import { Link } from 'react-router-dom';
 
 const Footer_about = () => {
     const currentYear = new Date().getFullYear();
@@ -12,10 +13,17 @@ const Footer_about = () => {
         <section className='flex flex-col sm:flex-row  items-center justify-center lg:space-x-[50rem] md:space-x-[20rem]'>
             <img src={Images.Logo} alt='logo' className='w-[79px] h-[60px]' />
             <ul className='flex items-center justify-center lg:space-x-[4rem] md:space-x-[2rem] space-x-[2rem] lg:py-0 py-[2rem]'>
+              <Link to="/about">
                 <li className='text-[#0D1111] font-poppins font-semibold text-lg leading-6'>About Us</li>
-                <li  className='text-[#0D1111] font-poppins font-semibold text-lg leading-6'>Career</li>
+                </Link>
+                <Link to="/career">
+                <li  className='text-[#0D1111] font-poppins font-semibold text-lg leading-6'>Career</li></Link>
+               <Link to="/blog">
                 <li  className='text-[#0D1111] font-poppins font-semibold text-lg leading-6'>Blog</li>
+                </Link>
+                <Link to="/contact">
                 <li  className='text-[#0D1111] font-poppins font-semibold text-lg leading-6'>Contact</li>
+                </Link>
             </ul>
         </section>
     </section>
