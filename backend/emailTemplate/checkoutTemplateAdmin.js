@@ -1,6 +1,6 @@
 const _ = require("lodash")
 
-const checkoutEmailTemplate = _.template(`
+const checkoutEmailTemplateAdmin = _.template(`
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional //EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html
   xmlns="http://www.w3.org/1999/xhtml"
@@ -77,7 +77,7 @@ const checkoutEmailTemplate = _.template(`
           <tr>
             <td align="center" style="padding: 0; width: 24px">
               <img
-                src="https://teknokleen.com/logos/hygiene.png"
+              src="https://teknokleen.com/logos/hygiene.png"
                 alt="logo"
               />
             </td>
@@ -99,9 +99,11 @@ const checkoutEmailTemplate = _.template(`
         <tbody  align="left">
           <tr>
             <td style="vertical-align: top" width="100%">
-              <h2 align="center">Order Received</h2>
-              <p>Dear <%= fullname %>,</p>
-              <p>Thank you for placing an order with us. We have received your order, and the details are as follows:</p>
+            <h2>New Order Notification</h2>
+            <p>Hello Admin,</p>
+            
+            <p>A new order has been received from <%= fullname %>. The order details are as follows:</p>
+            
             </td>
           </tr>
         </tbody>
@@ -123,7 +125,7 @@ const checkoutEmailTemplate = _.template(`
           <tr>
                 <th></th>
               <th>Product</th>
-              <th>Qty</th>
+              <th>Quantity</th>
           </tr>
       </thead>
         <tbody>
@@ -152,43 +154,43 @@ const checkoutEmailTemplate = _.template(`
         "
         width="100%"
       >
-        <tbody align="left">
-          <tr>
-            <td style="vertical-align: top" width="100%">
-             <strong>Delivery Information:</strong>
-            </td>
-          </tr>
-          <tr>
-            <td style="vertical-align: top" width="100%">
-            Customer: <%= fullname %>
-            </td>
-          </tr>
-          <tr>
-            <td style="vertical-align: top" width="100%">
-            Address: <%= deliveryAddress ? deliveryAddress : 'N/A' %>
-            </td>
-          </tr>
-          <tr>
-          <td style="vertical-align: top" width="100%">
-          Telephone: <%= telephone %>
-          </td>
-        </tr>
-          <tr>
-            <td style="vertical-align: top" width="100%">
-            Delivery mode: <%= deliveryType %>
-            </td>
-          </tr>
-          <tr>
-          <td style="vertical-align: top" width="100%">
-          Preferred Delivery Date: <%= deliverydate %>
-          </td>
-        </tr>
-          
-        </tbody>
+      <tbody align="left">
+      <tr>
+        <td style="vertical-align: top" width="100%">
+         <strong>Delivery Information:</strong>
+        </td>
+      </tr>
+      <tr>
+        <td style="vertical-align: top" width="100%">
+        Customer: <%= fullname %>
+        </td>
+      </tr>
+      <tr>
+        <td style="vertical-align: top" width="100%">
+        Address: <%= deliveryAddress ? deliveryAddress : 'N/A' %>
+        </td>
+      </tr>
+      <tr>
+      <td style="vertical-align: top" width="100%">
+      Telephone: <%= telephone %>
+      </td>
+    </tr>
+      <tr>
+        <td style="vertical-align: top" width="100%">
+        Delivery mode: <%= deliveryType %>
+        </td>
+      </tr>
+      <tr>
+      <td style="vertical-align: top" width="100%">
+      Preferred Delivery Date: <%= deliverydate %>
+      </td>
+    </tr>
+      
+    </tbody>
       </table>
       <!-- End single column section -->
     </div>
   </body>
 </html>
 `);
-module.exports = checkoutEmailTemplate;
+module.exports = checkoutEmailTemplateAdmin;

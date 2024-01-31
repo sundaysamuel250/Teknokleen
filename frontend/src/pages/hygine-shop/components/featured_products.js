@@ -9,9 +9,12 @@ import { alpha, httpGetWithoutToken } from "../../../utils/http_util";
 import { Link, useParams } from "react-router-dom";
 import { AppContext } from "../../../state/context";
 import { ProductView } from "./product";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 function FeaturedProduct() {
   const {cart, updateCart} = useContext(AppContext)
   const params = useParams();
+  const [sortBy, setSortBy] = useState("Sort by Newest")
   const [products, setProducts] = useState([])
   const [brands, setBrands] = useState([])
   const [category, setCategory] = useState(params.category != "shop" ? params.category || "" : "")
@@ -28,7 +31,7 @@ function FeaturedProduct() {
  
   const fetchConstants = async ()=> {
     // alert(category )
-    const resp = await httpGetWithoutToken("shop/products?search="+useSearch+"&category="+category+"&brand="+brand)
+    const resp = await httpGetWithoutToken("shop/products?search="+useSearch+"&category="+category+"&brand="+brand+"sortBy="+sortBy)
     if(resp.statusCode == 200){
       setProducts(resp.data.items)
     }
@@ -41,17 +44,13 @@ function FeaturedProduct() {
   }
 
   const searchChange = (e)=> {
-    var key = e.key;
-    // console.log(e)
-    // if(!alpha.includes(key.toLowerCase())) return false;
-    // const newWord = search+e.key
-    // setSearch(newWord)
-    // console.log(newWord)
-    // if(newWord > 2) {
-    //   setUseSearch(newWord)
-    // }else{
-    //   setUseSearch("")
-    // }
+    var key = e.target.value;
+    setSearch(key)
+    if(key.length > 2) {
+      setUseSearch(key)
+    }else{
+      setUseSearch("")
+    }
 
   } 
   const inCart = (id)=> {
@@ -68,12 +67,13 @@ function FeaturedProduct() {
     setLoadingid(item.id)
     setTimeout(()=> {
       updateCart(item)
-      alert("Cart updated")
+      toast.success(qty == 1 ? "Product added to Cart" : "Cart updated")
     }, 1000)
   }
   
   return (
     <div className="container font-['poppins'] px-3 lg:px-auto mx-auto">
+    <ToastContainer />
       <div className={`${params.category ?"my-[50px]" : "my-[50px]" }`}>
        {product &&  <ProductView inCart={inCart(product?.id)} addToCart={(item, qty)=>addToCart(item, qty)} close={()=>setProduct(null)} product={product} />}
         <div className="flex gap-5 lg:items-center flex-col lg:flex-row">
@@ -87,12 +87,10 @@ function FeaturedProduct() {
           <div className="flex-initial w-full flex flex-col md:items-center lg:items-center md:flex-row lg:flex-row gap-4">
             {/* dropdwon here category */}
             <div className="flex items-center flex-initial w-full">
-              {
-                params.category && params.category == "shop" ?
+              {/* { */}
                 <div className="min-w-[200px] lg:min-w-[250px]">
                 <CategoryDropdown />
-              </div> : ""
-              }
+              </div>
               <div
                 style={{ border: "1px solid #86CFF2" }}
                 className="px-3 max-w-[350px] rounded-[10px] w-full flex items-center"
@@ -101,13 +99,13 @@ function FeaturedProduct() {
                   className="h-[45px]  font-[poppins] outline-none border-none w-full "
                   placeholder="Search products"
                   value={search}
-                  onKeyUp={(e)=> searchChange(e)}
+                  onChange={(e)=> searchChange(e)}
                 />
                 <AiOutlineSearch size={"18px"} color="#B0BABF" />
               </div>
             </div>
             <div className="flex gap-3 lg:gap-1 whitespace-no-wrap min-w-[300px] justify-end items-center cursor-[pointer]">
-              <SortByDropdown /> &nbsp;
+              <SortByDropdown callback={(value)=> setSortBy(value)} /> &nbsp;
               {/* cart button */}
               <Link to={"/hygiene-shop/checkout"}>
               <div className="flex relative gap-2 items-center">

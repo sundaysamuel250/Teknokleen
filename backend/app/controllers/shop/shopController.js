@@ -8,6 +8,7 @@ const BrandService = require("../../services/brand/brand");
 const PBService = require("../../services/product/product_brands");
 const sendMail = require("../../helpers/sendMail");
 const checkoutEmailTemplate = require("../../../emailTemplate/checkoutTemplate");
+const checkoutEmailTemplateAdmin = require("../../../emailTemplate/checkoutTemplateAdmin");
 require("dotenv").config();
 
 
@@ -71,9 +72,9 @@ class ShopController {
   
   static async Products(req, res) {
     const {
-      query : {search = "", limit = 20, page = 1, brand = "", category = "" }
+      query : {search = "", limit = 20, page = 1, brand = "", category = "", sortBy="" }
     } = req;
-
+    var sort = sortBy.includes("old") ? "oldest" :(sortBy.includes("newest") ? "newest" : "name")
      let offset = page == 1 ? 0 : (page-1)*limit;
 
      var products = [];
@@ -154,13 +155,32 @@ class ShopController {
       deliveryAddress : deliveryAddress,
       deliveryType : deliveryType,
       deliverydate : deliverydate,
-
+      telephone : telephone,
+      items : items,
+      email : email
+    });
+    var templateeAdmin = checkoutEmailTemplateAdmin({
+      fullname : fullname,
+      deliveryAddress : deliveryAddress,
+      deliveryType : deliveryType,
+      deliverydate : deliverydate,
+      telephone : telephone,
+      items : items,
+      email : email
     });
     // return res.send(templatee).status(200)
 
+    // send email to user
+    await sendMail({
+      subject : "YOUR ORDER HAS BEEN RECIEVED",
+      html : templatee,
+      to : email,
+    })
+
+    // send email to admin
     const sm = await sendMail({
       subject : "NEW ORDER RECIEVED FROM " + fullname,
-      html : templatee,
+      html : templateeAdmin,
       to : process.env.TEKNO_NOTIFY,
     })
 
@@ -177,7 +197,7 @@ class ShopController {
 
      return okResponse({
       res,
-      data : sm,
+      data : {},
       message : "Your order was recieved successfully",
       status : "success",
       statusCode: StatusCodes.OK,

@@ -1,12 +1,13 @@
-import { useParams } from "react-router-dom"
+import { Link, useParams } from "react-router-dom"
 import { AppContext } from "../../../state/context"
 import { useContext, useEffect, useState } from "react"
 import { httpGetWithoutToken, httpPostWithoutToken } from "../../../utils/http_util"
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { FaTrash } from "react-icons/fa6";
 
 export default function CheckoutPage() {
-    const { cart, updateCart, updateCartQty } = useContext(AppContext)
+    const { cart, updateCart, updateCartQty, newCart } = useContext(AppContext)
     const [items, setItems] = useState([])
     const [error, setError] = useState("")
     const [email, setEmail] = useState("")
@@ -40,7 +41,12 @@ export default function CheckoutPage() {
         if(type == "in-shop") setDeliveryAddress("")
         setDeliveryType(type)
     }
-
+    const deleteCart = (slug) => {
+        const it = items.filter((l)=> l.slug !== slug)
+        // console.log(it)
+        newCart(it)
+        setItems(it)
+    }
     const updateCartQtyH = (slug, type, qty) => {
       
         var cartItems = items;
@@ -51,7 +57,9 @@ export default function CheckoutPage() {
                 updateCartQty(slug, type)
             }
             var newitems = []
-            var q = qty == 1 && type == "minus" ? 1 : (type == "mninus" ? qty - 1 : qty + 1 )
+            var q = qty == 1 && type.trim() == "minus" ? 1 : (type.trim() == "mninus" ? qty - 1 : qty + 1 )
+            alert(q)
+            alert(type)
             it.qty = q;
             for (let i = 0; i < cartItems.length; i++) {
                 let item = cartItems[i];
@@ -59,6 +67,7 @@ export default function CheckoutPage() {
                 newitems = [...newitems, item];
             }
             setItems(newitems)
+            toast.success("Cart updated")
         }
     }
 
@@ -89,11 +98,13 @@ export default function CheckoutPage() {
        if(resp.statusCode !=200){
             return toast.error(resp.error)
        }
-
-       toast.success("Checkout complete")
+       newCart([])
+       setItems([])
+       toast.success("Checkout complete, the details of the Order has been sent to you email address")
     }
     return (
         <>
+        <ToastContainer />
             <div class="px-4 pt-[50px] mx-auto max-w-[820px] text-center">
                 <p class="text-xl font-medium">Request for a Quote</p>
                 <p class="text-gray-600">PLEASE NOTE: We only use this quote to take record of your order. We will further communicate with you on the different specifications of your items before proceeding with deliveries.
@@ -118,7 +129,7 @@ export default function CheckoutPage() {
                                                         className="w-20 h-full text-gray-600 bg-gray-100 border-r rounded-l outline-none cursor-pointer dark:border-gray-700 dark:hover:bg-gray-700 dark:text-gray-400 hover:text-gray-700 dark:bg-gray-900 hover:bg-gray-300">
                                                         <span className="m-auto text-2xl font-thin">-</span>
                                                     </button>
-                                                    <input type="number"
+                                                    <input type="text" disabled
                                                         className="flex items-center w-full font-semibold text-center text-gray-700 placeholder-gray-700 bg-gray-100 outline-none dark:text-gray-400 dark:placeholder-gray-400 dark:bg-gray-900 focus:outline-none text-md hover:text-black"
                                                         placeholder="1" value={item.qty ? item.qty : 1} />
                                                     <button
@@ -126,13 +137,28 @@ export default function CheckoutPage() {
                                                         className="w-20 h-full text-gray-600 bg-gray-100 border-l rounded-r outline-none cursor-pointer dark:border-gray-700 dark:hover:bg-gray-700 dark:text-gray-400 dark:bg-gray-900 hover:text-gray-700 hover:bg-gray-300">
                                                         <span className="m-auto text-2xl font-thin">+</span>
                                                     </button>
+                                                    <div className="mx-1"></div>
+                                                    <button
+                                                    onClick={()=>deleteCart(item.slug)}
+                                                        className="w-20 rounded-l outline-none cursor-pointer ">
+                                                        <FaTrash />
+                                                    </button>
                                                 </div>
                                             </div>
+                                            
                                         </div>
                                     </div>
                                 </div>
 
                             ))
+                        }
+                        {
+                            items.length === 0 && <div className="mt-4">
+                                <h3>Cart items</h3>
+                                <p class="text-gray-600">No items found or all items was processed successfully</p>
+                                <div className="mt-2"></div>
+                                <Link className="bg-black px-3 py-2 rounded-[10px] text-white" to={'/hygiene-shop'}>Visit Shop</Link>
+                            </div>
                         }
                     </div>
 

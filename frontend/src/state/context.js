@@ -11,7 +11,11 @@ export default function AppStateProvider(props){
         ls.set("cartItems", c)
         setCart(c)
     }
+    const newCart = (items) => {
+        ls.set("cartItems", items)
 
+        setCart(items)
+    }
     const updateCartQty = (productSlug, type) => {
         var c = ls.get("cartItems") ?? [];
         var product = c.find((p)=> p.slug == productSlug)
@@ -40,7 +44,7 @@ export default function AppStateProvider(props){
     return (
         <AppContext.Provider
         value={{
-            cart, updateCart,updateCartQty
+            cart, updateCart,updateCartQty, newCart
         }}
          >
             {props.children}
