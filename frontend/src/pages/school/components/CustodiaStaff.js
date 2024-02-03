@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import Data from './custodia_service_staff_accordion/Data';
 import Register from './custodia_service_staff_accordion/Register';
+import RegistrationForm from './RegistrationForm';
 
 const CustodiaStaff = () => {
     const [isModalOpen, setIsModalOpen] = useState(false);
@@ -42,7 +43,8 @@ const CustodiaStaff = () => {
             <button onClick={openModal} className="bg-[#23146D] hover:bg-[#23146D] hover:tracking-[1px] md:w-[203px] md:h-[64px] w-[150px] h-[35px] rounded-[10px] text-[#FFC640] font-normal font-['Poppins'] md:text-[16px] text-[10px] leeding-none not-italic border-none tracking-wide ">
               Register Here
             </button>
-            <Register  isOpen={isModalOpen} onClose={closeModal} />
+            <RegistrationForm amt={70000} title="ADVANCED BUSINESS MANAGERS TRAINING" isOpen={isModalOpen} onClose={closeModal} />
+
           </div>
         </div>
       </div>

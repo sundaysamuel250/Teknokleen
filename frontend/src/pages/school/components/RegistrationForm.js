@@ -1,6 +1,11 @@
 import React, { useState } from 'react';
 import { FaTimes } from "react-icons/fa";
-const RegistrationForm = ({ isOpen, onClose }) => {
+import { usePaystackPayment, PaystackButton } from 'react-paystack';
+import { httpPostWithoutToken } from '../../../utils/http_util';
+
+
+
+const RegistrationForm = ({ isOpen, onClose, title, amt }) => {
 
 
   const states = [
@@ -10,52 +15,109 @@ const RegistrationForm = ({ isOpen, onClose }) => {
     'Kwara', 'Lagos', 'Nasarawa', 'Niger', 'Ogun', 'Ondo', 'Osun', 'Oyo',
     'Plateau', 'Rivers', 'Sokoto', 'Taraba', 'Yobe', 'Zamfara',
   ];
-  
+
 
 
   const [name, setName] = useState("")
   const [email, setEmail] = useState("")
-  const [amount, setAmount] = useState("")
+  const [amount, setAmount] = useState(amt || "180000")
+  const [pamount, setpAmount] = useState(amt *100)
   const [phoneNumber, setPhoneNumber] = useState("")
   const [selectedState, setSelectedState] = useState('');
+  const [hearaboutus, setHearAboutUs] = useState('')
+  const [showpaystack, setShowPaystack] = useState(false)
 
+const publicKey = "pk_test_4fedad5180c7c3bef0d5d1b764c4ce546822c62b"
+const componentProps = {
+  email,
+  pamount,
+  metadata: {
+    name,
+    phoneNumber,
+  },
+  publicKey,
+  text: "Pay Now",
+  onclick : ()=> {
+    alert("click");
+  },
+  BeforeUnloadEvent : ()=> {
+    alert("before")
+  },
+  onSuccess:  (resp) =>{
+    paymentDone(resp)
+      alert("Thanks for doing business with us! Come back soon!!")
+  },
+  onClose: () => alert("Wait! Don't leave :("),
+}
 
+const paymentDone = async (resp) => {
+  var ref = resp.reference;
+  var data = {
+    title : title,
+    amount : amount,
+    ref : ref,
+    name : name,
+    email : email,
+    phoneNumber : phoneNumber,
+    state : selectedState,
+    hearaboutus : hearaboutus
+  }
 
-const handleName = (e) => {
+  let res = await httpPostWithoutToken("courses-form", data);
+  console.log("resp", res)
+}
+
+  const handleName = (e) => {
     setName(e.target.value)
-}
-const handleEmail = (e) => {
+  }
+  const handleEmail = (e) => {
     setEmail(e.target.value)
-}
+  }
 
-const handleAmount = (e) => {
+  const handleAmount = (e) => {
     setAmount(e.target.value)
-}
-const handlePhoneNumber = (e) => {
+  }
+  const handlePhoneNumber = (e) => {
     setPhoneNumber(e.target.value)
-}
-const handleChange = (e) => {
-  setSelectedState(e.target.value);
-};
-
+  }
+  const handleChange = (e) => {
+    setSelectedState(e.target.value);
+  };
+  const handleChangeHear = (e) => {
+    setHearAboutUs(e.target.value);
+  };
+  const validateEmail = (e) => {
+    return String(e)
+      .toLowerCase()
+      .match(
+        /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+      );
+  };
+  
 
   const handleSubmit = (e) => {
+    console.log(e)
     e.preventDefault();
-    // You can handle form submission here.
-   setName("");
-   setEmail("")
-   setAmount("")
-    // Close the modal
-    onClose();
-  };
+    if(name == "" || email == "" || amount == "" || phoneNumber == "" || selectedState == ""){
+      alert("All Fields are required");
+      return false;
+   }
+   if(!validateEmail(email)){
+    alert("invalid email address")
+    return false;
+   }
 
+   setShowPaystack(true)
+  };
+  const hears = [
+    "Google", "Facebook", "Instagram", "Twitter", "Website & Blog"
+  ]
   return (
     <div
-      className={`${
-        isOpen ? 'block' : 'hidden'
-      } fixed inset-0 w-full h-full z-50 overflow-auto bg-black bg-opacity-50 flex`}
+      className={`${isOpen ? 'block' : 'hidden'
+        } fixed inset-0 w-full h-full z-50 overflow-auto bg-black bg-opacity-50 flex`}
     >
-      <div className="relative pl-20 pt-8 w-[50%] h-[80%] bg-white rounded-lg m-auto">
+      <div className="relative px-3 pt-8 w-[50%] h-[80%] overflow-auto bg-white rounded-lg m-auto">
         <button
           className="absolute top-0 right-0 p-2 m-3 text-[24px] text-[#23146D] hover:text-red-500"
           onClick={onClose}
@@ -63,7 +125,21 @@ const handleChange = (e) => {
           <FaTimes />
         </button>
         <h2 className="text-2xl font-semibold text-[#23146D] font-[''gentium-book-basic''] ">Register Here</h2>
-        <form className="mt-4" onSubmit={handleSubmit}>
+        {
+          showpaystack ?
+          <>
+          <div className='p-3'>
+            <p>Please proceed to make payment for the course</p>
+
+          <PaystackButton className='bg-blue-500 text-white py-2 px-4 mt-2 rounded-md hover:bg-blue-600' {...componentProps} />
+          <span className='mx-3'></span> <a href="#?" onClick={()=> setShowPaystack(false)}>cancel</a>
+          </div>
+          </>
+          :
+        <form className="mt-4 p-2 pb-5 w-full" onSubmit={handleSubmit}>
+          <div className='mb-4'>
+            <strong>Course : {title}</strong>
+          </div>
           <div className="mb-4">
             <label htmlFor="name" className="block text-gray-700">
               Full Name
@@ -77,7 +153,7 @@ const handleChange = (e) => {
               autoCapitalize='none'
               value={name}
               onChange={handleName}
-              className="w-[70%] px-3 py-2 border rounded-md focus:outline-none focus:ring focus:ring-blue-300"
+              className="w-full px-3 py-2 border rounded-md focus:outline-none focus:ring focus:ring-blue-300"
               required
             />
           </div>
@@ -94,11 +170,11 @@ const handleChange = (e) => {
               autoCapitalize='none'
               value={email}
               onChange={handleEmail}
-              className="w-[70%] px-3 py-2 border rounded-md focus:outline-none focus:ring focus:ring-blue-300"
+              className="w-full px-3 py-2 border rounded-md focus:outline-none focus:ring focus:ring-blue-300"
               required
             />
           </div>
-          <div className="mb-4">
+          {/* <div className="mb-4">
             <label htmlFor="email" className="block text-gray-700">
               Amount (NGN)
             </label>
@@ -110,13 +186,13 @@ const handleChange = (e) => {
               autoComplete='none'
               value={amount}
               onChange={handleAmount}
-              className="w-[70%] px-3 py-2 border rounded-md focus:outline-none focus:ring focus:ring-blue-300"
+              className="w-full px-3 py-2 border rounded-md focus:outline-none focus:ring focus:ring-blue-300"
               required
             />
-          </div>
+          </div> */}
           <div className="mb-4">
             <label htmlFor="email" className="block text-gray-700">
-             Phone Number
+              Phone Number
             </label>
             <input
               type="tel"
@@ -126,55 +202,53 @@ const handleChange = (e) => {
               autoComplete='none'
               value={phoneNumber}
               onChange={handlePhoneNumber}
-              className="w-[70%] px-3 py-2 border rounded-md focus:outline-none focus:ring focus:ring-blue-300"
+              className="w-full px-3 py-2 border rounded-md focus:outline-none focus:ring focus:ring-blue-300"
               required
             />
           </div>
           <div className="w-full max-w-xs">
-          <label htmlFor="email" className="block text-gray-700">
-             Current Location
+            <label htmlFor="email" className="block text-gray-700">
+              Current Location
             </label>
-      <select
-        id="state"
-        name="state"
-        value={selectedState}
-        onChange={handleChange}
-        className="w-[70%] px-3 py-2 border rounded-md focus:outline-none focus:ring focus:ring-blue-300"
-      >
-        <option value="">Select a state</option>
-        {states.map((state) => (
-          <option key={state} value={state}>
-            {state}
-          </option>
-        ))}
-      </select>
-    </div>
-    <div className='mt-4'>
-        <p>How did You Here About Us</p>
-   <div className='flex gap-20'>
-    <div>
-    <input type="radio" id="html" name="fav_language" value="google" />
-  <label for="html">Google</label><br/>
-  <input type="radio" id="css" name="fav_language" value="facebook" />
-  <label for="css">Facebook</label><br />
-  <input type="radio" id="javascript" name="fav_language" value="instagram" />
-  <label for="javascript">Instagram</label>
-    </div>
-    <div>
-    <input type="radio" id="html" name="fav_language" value="twitter" />
-  <label for="html">Twitter</label><br/>
-  <input type="radio" id="css" name="fav_language" value="facebook" />
-  <label for="css">Website & blog</label><br />
-    </div>
-   </div>
-    </div>
-          <button
-            type="submit"
-            className="bg-blue-500 text-white py-2 px-4 mt-2 rounded-md hover:bg-blue-600"
-          >
-            Submit
-          </button>
+            <select
+              id="state"
+              name="state"
+              value={selectedState}
+              onChange={handleChange}
+              className="w-full px-3 py-2 border rounded-md focus:outline-none focus:ring focus:ring-blue-300"
+            >
+              <option value="">Select a state</option>
+              {states.map((state) => (
+                <option key={state} value={state}>
+                  {state}
+                </option>
+              ))}
+            </select>
+          </div>
+          <div className='mt-4'>
+            <p>How did You Here About Us</p>
+            <select
+              id="state"
+              name="state"
+              value={hearaboutus}
+              onChange={handleChangeHear}
+              className="w-full px-3 py-2 border rounded-md focus:outline-none focus:ring focus:ring-blue-300"
+            >
+              <option value="">Select</option>
+              {hears.map((state) => (
+                <option key={state} value={state}>
+                  {state}
+                </option>
+              ))}
+            </select>
+            </div>
+           
+              <button className='bg-blue-500 text-white py-2 px-4 mt-2 rounded-md hover:bg-blue-600'>Submit</button>
+            
+
+
         </form>
+        }
       </div>
     </div>
   );
