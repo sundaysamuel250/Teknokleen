@@ -4,6 +4,12 @@ const { catchInternalServerError } = require('../middlewares/catchError');
 const ApplicationController = require('../controllers/application_form/applicationController');
 const { validateCreateApplication, validateCreateApplicationCourse } = require('../../validators/application.validators');
 const applicationRouter = Router();
+const multer = require("multer")
+
+const storage = multer.memoryStorage();
+const upload = multer({ storage: storage });
+
+
 
 
 

@@ -8,7 +8,6 @@ function Form() {
     email: "",
     phone: "",
     message: "",
-    file: null
   });
 
   const handleChange = (e) => {
@@ -28,7 +27,6 @@ function Form() {
         email: "",
         phone: "",
         message: "",
-        file: null
       })
     } catch (error) {
       console.log("Error submitting form ", error)

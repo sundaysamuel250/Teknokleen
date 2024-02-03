@@ -1,6 +1,5 @@
 const bodyParser = require("body-parser");
 const express = require("express");
-const multer = require('multer');
 const helmet = require("helmet");
 const ROUTES = require("../app/routes/constants.routes.js");
 const allRoutes = require("../app/routes/index.js");
@@ -10,14 +9,7 @@ const expressConfig = (app) => {
   app.use(bodyParser.json());
   app.use(bodyParser.urlencoded({ extended: true }));
   app.use(express.json())
-  const storage = multer.diskStorage({
-    destination: function (req, file, cb) {
-      cb(null, path.join(__dirname, 'uploads'));
-    },
-    filename: function (req, file, cb) {
-      cb(null, file.originalname);
-    },
-  });
+
   
 
   // Use helmet to secure Express headers

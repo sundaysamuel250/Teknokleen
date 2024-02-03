@@ -84,13 +84,17 @@ const HygieneShopHero = () => {
         <div className="h-[25px] w-[25px] md:bg-[#6EC1E4] bg-none rounded-tl-[50px] rounded-tr-[10px] rounded-bl-[10px] rounded-br-[10px] md:absolute lg:top-[48%] md:top-[80%] right-[33rem] z-50 " />
         <div className="h-[25px] w-[25px] md:bg-[#FAECC9] bg-none rounded-md md:absolute md:top-[90%] md:right-[5%] absolute top-[4%] left-[46%] z-50" />
         <section className="md:relative absolute right-[100px] top-[-2rem] md:right-[-8rem] lg:right-[-4rem]">
-          <motion.div className="md:absolute relative lg:left-[-2rem]  left-0 md:p-[] md:left-0 lg:top-20 top-4 md:right-5 lg:w-[667px] lg:h-[567px] md:w-[554px] md:h-[746px]  w-[300px] h-[300px] ">
+          <motion.div
+           initial={{ opacity: 0, scale: 0.5 }}
+           animate={{ opacity: 1, scale: 1 }}
+           transition={{ duration: 3 }}
+           className="md:absolute relative lg:left-[2rem]  left-0 md:p-[] md:left-0 lg:top-40 top-4 md:right-5 lg:w-[500px] lg:h-[500px] md:w-[554px] md:h-[300px]  w-[300px] h-[300px] ">
             <img src={shopImage} alt="picture" />
           </motion.div>
-          <div className="">
+          <div className="lg:block none">
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              className="md:w-[554px] md:h-[746px] w-[200px] h-[200px]"
+              className="lg:block hidden lg:w-[554px lg:h-[746px] md:w-[554px] md:h-[746px] none"
               viewBox="0 0 554 746"
               fill="none"
             >
