@@ -64,7 +64,11 @@ const paymentDone = async (resp) => {
   }
 
   let res = await httpPostWithoutToken("courses-form", data);
-  console.log("resp", res)
+  if(res == "success"){
+    alert("Your Course payment was received, We will contact you shortly!")
+  }else{
+    alert("Something went wrong")
+  }
 }
 
   const handleName = (e) => {
