@@ -111,7 +111,6 @@ const applicationEmailTemplate = _.template(`
               Message: <%= message %>
               </p>
               <p>
-              Resume(CV):  <%= attachments %>
               </p>
             </td>
           </tr>

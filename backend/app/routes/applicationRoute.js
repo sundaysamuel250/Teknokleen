@@ -14,11 +14,10 @@ const upload = multer({ storage: storage });
 
 
 // API endpoint to handle form submissions
-applicationRouter.post('/application-form',
-  validateRequestBody(validateCreateApplication, "payload"),
-  catchInternalServerError(ApplicationController.postApplication)
-)
-
+applicationRouter.post('/application-form', upload.single('file'),
+ validateRequestBody(validateCreateApplication, "payload" ),
+ catchInternalServerError(ApplicationController.postApplication)
+  )
 applicationRouter.post('/submit-form',
   validateRequestBody(validateCreateApplication),
   catchInternalServerError(ApplicationController.postApplication)
