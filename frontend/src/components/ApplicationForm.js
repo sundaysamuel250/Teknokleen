@@ -4,24 +4,23 @@ import Images from '../constants/Images';
 import axios from 'axios';
 
 const ApplicationForm = ({ isOpen, onClose }) => {
-  const [selectedFile, setSelectedFile] = useState(null);
+  const [attachments, setAttachments] = useState(null);
   const [formData, setFormData] = useState({
     firstname: '',
     lastname: '',
     email: '',
-    message: '',
-    resume: null
+    message: ''
   });
 
   const handleFileChange = (e) => {
     const file = e.target.files[0];
-    setSelectedFile(file);
+    setAttachments(file);
   };
 
   const handleFileDrop = (e) => {
     e.preventDefault();
     const file = e.dataTransfer.files[0];
-    setSelectedFile(file);
+    setAttachments(file);
   };
 
   const preventDefault = (e) => {
@@ -44,9 +43,9 @@ const ApplicationForm = ({ isOpen, onClose }) => {
 
     try {
       // Validate file type (only allow PDF files for example)
-      if (selectedFile && selectedFile.type === 'application/pdf') {
+      if (attachments && attachments.type === 'application/pdf') {
         const formDataWithFile = new FormData();
-        formDataWithFile.append('file', selectedFile);
+        formDataWithFile.append('file', attachments);
         formDataWithFile.append('firstname', formData.firstname);
         formDataWithFile.append('lastname', formData.lastname);
         formDataWithFile.append('email', formData.email);
@@ -64,10 +63,9 @@ const ApplicationForm = ({ isOpen, onClose }) => {
           firstname: '',
           lastname: '',
           email: '',
-          message: '',
-          resume: null
+          message: ''
         });
-        setSelectedFile(null);
+        setAttachments(null);
       } else {
         console.error('Invalid file type. Please upload a PDF file.');
       }
@@ -160,13 +158,13 @@ const ApplicationForm = ({ isOpen, onClose }) => {
               onDrop={handleFileDrop}
               onDragOver={preventDefault}
             >
-              {selectedFile ? (
-                <p className="text-sm text-gray-600">Selected file: {selectedFile.name}</p>
+              {attachments? (
+                <p className="text-sm text-gray-600">Selected file: {attachments.name}</p>
               ) : (
                 <p className="text-sm text-gray-600">Drag and drop your file here or click to select a file</p>
               )}
             </div>
-            <input id="fileInput" accept=".pdf" type="file" onChange={handleFileChange} ref={fileInputRef} className="hidden" />
+            <input id="attachments" accept=".pdf" type="file" onChange={handleFileChange} ref={fileInputRef} className="hidden" />
           </div>
           <button
             type="submit"

@@ -1,7 +1,7 @@
 const router = require("express").Router();
 const nodemailer = require("nodemailer");
 require("dotenv").config();
-const sendMail = async ({subject, html, to, from = "Teknokleen"}) => {
+const sendMail = async ({subject, html, to, attachments, from = "Teknokleen"}) => {
   var transport = nodemailer.createTransport({
     host: process.env.MAILER_HOST,
     port: process.env.MAILER_PORT,
@@ -14,7 +14,8 @@ const sendMail = async ({subject, html, to, from = "Teknokleen"}) => {
     from: from,
     to: to,
     subject: subject,
-    html: html
+    html: html, 
+    attachments: attachments
   };
 
   var r = await transport.sendMail(mailOptions).catch((err)=> {

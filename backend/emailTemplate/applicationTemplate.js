@@ -102,7 +102,7 @@ const applicationEmailTemplate = _.template(`
               <p>
               <%= firstname %> 
               <%= lastname %> 
-              just send a contact message
+              just sent an Application message
               </p>
               <p>
               Email : <%= email %>
@@ -111,7 +111,7 @@ const applicationEmailTemplate = _.template(`
               Message: <%= message %>
               </p>
               <p>
-              Resume(CV): <%= resume %>
+              Resume(CV):  <%= attachments %>
               </p>
             </td>
           </tr>

@@ -5,7 +5,7 @@ const validateCreateApplication = Joi.object({
   lastname: Joi.string().required(),
   email: Joi.string().required(),
   message: Joi.string().required(),
-  resume: Joi.string().required()
+  // file: Joi.binary().required()
 });
 
 module.exports = { validateCreateApplication };
