@@ -31,6 +31,7 @@ const publicKey = "pk_test_4fedad5180c7c3bef0d5d1b764c4ce546822c62b"
 const componentProps = {
   email,
   pamount,
+  amount,
   metadata: {
     name,
     phoneNumber,
