@@ -20,8 +20,7 @@ const RegistrationForm = ({ isOpen, onClose, title, amt }) => {
 
   const [name, setName] = useState("")
   const [email, setEmail] = useState("")
-  const [amount, setAmount] = useState(amt || "180000")
-  const [pamount, setpAmount] = useState(amt *100)
+  const [amount, setAmount] = useState(amt)
   const [phoneNumber, setPhoneNumber] = useState("")
   const [selectedState, setSelectedState] = useState('');
   const [hearaboutus, setHearAboutUs] = useState('')
@@ -29,9 +28,8 @@ const RegistrationForm = ({ isOpen, onClose, title, amt }) => {
 
 const publicKey = "pk_test_4fedad5180c7c3bef0d5d1b764c4ce546822c62b"
 const componentProps = {
-  email,
-  pamount,
-  amount,
+  email : email,
+  amount : amount*100,
   metadata: {
     name,
     phoneNumber,
@@ -101,7 +99,6 @@ const paymentDone = async (resp) => {
   
 
   const handleSubmit = (e) => {
-    console.log(e)
     e.preventDefault();
     if(name == "" || email == "" || amount == "" || phoneNumber == "" || selectedState == ""){
       alert("All Fields are required");
@@ -211,7 +208,7 @@ const paymentDone = async (resp) => {
               required
             />
           </div>
-          <div className="w-full max-w-xs">
+          <div className="w-full">
             <label htmlFor="email" className="block text-gray-700">
               Current Location
             </label>
@@ -221,7 +218,7 @@ const paymentDone = async (resp) => {
               value={selectedState}
               onChange={handleChange}
               className="w-full px-3 py-2 border rounded-md focus:outline-none focus:ring focus:ring-blue-300"
-            >
+              >
               <option value="">Select a state</option>
               {states.map((state) => (
                 <option key={state} value={state}>

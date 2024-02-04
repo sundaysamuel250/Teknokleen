@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import Data from './custodia_service_staff_accordion/Data';
 import Register from './custodia_service_staff_accordion/Register';
 import RegistrationForm from './RegistrationForm';
+import Images from '../../../constants/Images';
 
 const CustodiaStaff = () => {
     const [isModalOpen, setIsModalOpen] = useState(false);
@@ -24,8 +25,8 @@ const CustodiaStaff = () => {
     <section className="md:mt-20 w-full mt-20">
       <div className="grid  w-full gap-5 lg:grid-cols-2 grid-cols-1">
         <div className="relative order-last mb-[100px] max-h-[500px]">
-          {/* <img src={advanceImage} className="w-[full] max-h-[500px] object-cover object-top rounded-[10px]"
-          /> */}
+          <img src={Images.Services_staff_img} className="w-[full] max-h-[500px] object-cover object-top rounded-[10px]"
+          />
         </div>
         <div className="p-3">
           <h1 className="lg:text-[40px] md:text-[36px] text-[20px] font-[500] leading-tight text-[#23146D] font-[''gentium-book-basic''] leading">

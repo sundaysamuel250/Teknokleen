@@ -46,6 +46,7 @@ import All_post_img2 from "../assets/all_post2.svg"
 import All_post_img3 from "../assets/all_post3.svg"
 import Get_IMG from "../assets/get-img.svg"
 import Applicate_IMG from "../assets/applicat-img.svg"
+import Services_staff_img from "../assets/service_staff.png"
 
 
 
@@ -105,5 +106,6 @@ export default {
     All_post_img2,
     All_post_img3,
     Get_IMG,
-    Applicate_IMG
+    Applicate_IMG,
+    Services_staff_img
 }
