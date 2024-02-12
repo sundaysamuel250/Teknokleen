@@ -5,7 +5,7 @@ function PeriodicCleaningModal() {
   return (
     <div className="font-[poppins]">
       <h3 className="text-center text-[#23146D] text-[45px] font-[700]">
-        One-Off Cleaning
+      Periodic office/Industrial cleaning
       </h3>
       <div className="p-3 text-[#4F4F4F] text-[16px]">
         <p>

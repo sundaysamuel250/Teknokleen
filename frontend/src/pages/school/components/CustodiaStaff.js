@@ -30,7 +30,7 @@ const CustodiaStaff = () => {
         </div>
         <div className="p-3">
           <h1 className="lg:text-[40px] md:text-[36px] text-[20px] font-[500] leading-tight text-[#23146D] font-[''gentium-book-basic''] leading">
-            ADVANCED BUSINESS MANAGERS TRAINING
+          CUSTODIAL MAINTENANCE COURSE FOR SERVICE STAFF
           </h1>
           <div className="mt-4 ">
            <Data />
@@ -44,7 +44,7 @@ const CustodiaStaff = () => {
             <button onClick={openModal} className="bg-[#23146D] hover:bg-[#23146D] hover:tracking-[1px] md:w-[203px] md:h-[64px] w-[150px] h-[35px] rounded-[10px] text-[#FFC640] font-normal font-['Poppins'] md:text-[16px] text-[10px] leeding-none not-italic border-none tracking-wide ">
               Register Here
             </button>
-            <RegistrationForm amt={70000} title="ADVANCED BUSINESS MANAGERS TRAINING" isOpen={isModalOpen} onClose={closeModal} />
+            <RegistrationForm amt={50000} title="ADVANCED BUSINESS MANAGERS TRAINING" isOpen={isModalOpen} onClose={closeModal} />
 
           </div>
         </div>

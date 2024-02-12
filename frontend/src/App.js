@@ -21,6 +21,7 @@ function App() {
     <>
       <Router>
       <ScrollToTop />
+        <div className='conatiner max-w-[1450px] mx-auto'>
         <Navbar />
         <Routes>
           <Route path="/" element={<Home />} />
@@ -47,6 +48,7 @@ function App() {
             <Route path="courses" element={<Courses />} />
           </Route>
         </Routes>
+        </div>
       </Router>
     </>
   );

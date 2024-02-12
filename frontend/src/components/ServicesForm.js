@@ -1,6 +1,7 @@
 // src/components/Form.js
 import React, { useState } from "react";
 import Images from "../constants/Images";
+import { httpPostWithoutToken } from "../utils/http_util";
 
 function ServiceForm() {
   const [formData, setFormData] = useState({
@@ -16,10 +17,26 @@ function ServiceForm() {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
   };
-
-  const handleSubmit = (e) => {
+ 
+  const handleSubmit =  async (e) => {
     e.preventDefault();
-    // Handle form submission here
+    try {
+      let response = await httpPostWithoutToken ("hygiene-form", formData);
+      console.log(response.data); // Handle response as needed
+      // Optionally, reset the form after submission
+      setFormData({
+        firstname: "",
+        lastname: "",
+        email:  "",
+        phone: "",
+        location: "",
+        message: ""
+
+      });
+    } catch (error) {
+      console.error('Error submitting form:', error);
+    }  
+
   };
 
   return (
@@ -81,7 +98,7 @@ function ServiceForm() {
                 name="email"
                 autoComplete="none"
                 placeholder="you@company.com"
-                value={formData.lastname}
+                value={formData.email}
                 onChange={handleChange}
                 required
                 className="mt-1 rounded-[8px] block lg:w-[430px] md:w-[570px]  w-[250px] lg:h-[50px] md:h-[56px] h-[40px] lg:text-[16px] text-[12px] border border-solid border-gray-300 bg-white p-4 shadow-sm focus:ring focus:ring-blue-200 focus:outline-none"
