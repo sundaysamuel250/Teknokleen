@@ -1,6 +1,7 @@
 const mysql = require("../../../config/pg");
 const db = require("../../../config/pg");
-const contactEmailTemplate = require("../../../emailTemplate/contactEmail");
+// const contactEmailTemplate = require("../../../emailTemplate/contactEmail");
+const contactEmailTemplate = require("../../../config/emailTemplate/contactEmail")
 const sendMail = require("../../helpers/sendMail");
 const nodemailer = require('nodemailer');
 

@@ -2,7 +2,7 @@ const { Router } = require('express');
 const validateRequestBody = require('../helpers/validateRequestBody');
 const { catchInternalServerError } = require('../middlewares/catchError');
 const ApplicationController = require('../controllers/application_form/applicationController');
-const { validateCreateApplication, validateCreateApplicationCourse, validateCreateApplicationHygiene } = require('../../validators/application.validators');
+const { validateCreateApplication, validateCreateApplicationCourse, validateCreateApplicationHygiene } = require("../../config/validators/application.validators");
 const applicationRouter = Router();
 const multer = require("multer")
 

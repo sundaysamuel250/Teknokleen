@@ -7,8 +7,10 @@ const simplePagination = require("../../helpers/pagination");
 const BrandService = require("../../services/brand/brand");
 const PBService = require("../../services/product/product_brands");
 const sendMail = require("../../helpers/sendMail");
-const checkoutEmailTemplate = require("../../../emailTemplate/checkoutTemplate");
-const checkoutEmailTemplateAdmin = require("../../../emailTemplate/checkoutTemplateAdmin");
+const checkoutEmailTemplate = require("../../../config/emailTemplate/checkoutTemplate");
+const checkoutEmailTemplateAdmin = require("../../../config/emailTemplate/checkoutTemplateAdmin")
+// const checkoutEmailTemplate = require("../../../emailTemplate/checkoutTemplate");
+// const checkoutEmailTemplateAdmin = require("../../../emailTemplate/checkoutTemplateAdmin");
 require("dotenv").config();
 
 

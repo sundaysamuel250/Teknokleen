@@ -1,14 +1,17 @@
-const mysql = require("../../../config/pg");
-const db = require("../../../config/pg");
-const applicationEmailTemplate = require("../../../emailTemplate/applicationTemplate");
+const mysql = require("../../../config/mysql");
+const db = require("../../../config/mysql");
+// const applicationEmailTemplate = require("../../../emailTemplate/applicationTemplate");
+const applicationEmailTemplate = require("../../../config/emailTemplate/applicationTemplate")
 const nodemailer = require('nodemailer');
 const sendMail = require("../../helpers/sendMail");
-const courseRegistrationTemplate = require("../../../emailTemplate/courseRegistrationTemplate");
+// const courseRegistrationTemplate = require("../../../emailTemplate/courseRegistrationTemplate");
+const courseRegistrationTemplate = require("../../../config/emailTemplate/courseRegistrationTemplate")
 require("dotenv").config();
 const path = require("path");
 const { okResponse, errorResponse } = require("../../helpers/response");
 const { StatusCodes } = require("http-status-codes");
-const hygieneFeedbackTemplate = require("../../../emailTemplate/hygieneFeedbackTemplate");
+// const hygieneFeedbackTemplate = require("../../../emailTemplate/hygieneFeedbackTemplate");
+const hygieneFeedbackTemplate = require("../../../config/emailTemplate/applicationTemplate")
 class ApplicationController {
 
   static async postApplication(req, res) {

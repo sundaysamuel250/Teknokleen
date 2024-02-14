@@ -3,7 +3,8 @@ const ROUTES = require("./constants.routes");
 const TestController = require("../controllers/tests/testController");
 const validateRequestBody = require("../helpers/validateRequestBody");
 const { catchInternalServerError } = require("../middlewares/catchError");
-const { validateCreateTest } = require("../../validators/tests.validtors");
+// const { validateCreateTest } = require("../../validators/tests.validtors");
+const { validateCreateTest } = require("../../config/validators/tests.validtors")
 const testsRouter = Router();
 
 testsRouter.get(

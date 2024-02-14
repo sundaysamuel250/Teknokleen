@@ -1,7 +1,7 @@
 
 const { Router } = require('express');
 const validateRequestBody = require('../helpers/validateRequestBody');
-const { validateCreateContact } = require('../../validators/contact.validators');
+const { validateCreateContact } = require("../../config/validators/contact.validators");
 const ContactController = require('../controllers/contact/contactContoller');
 const { catchInternalServerError } = require('../middlewares/catchError');
 const contactRouter = Router();
