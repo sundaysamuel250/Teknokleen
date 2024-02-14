@@ -1,5 +1,5 @@
-const mysql = require("../../../config/mysql");
-const db = require("../../../config/mysql");
+const mysql = require("../../../config/pg");
+const db = require("../../../config/pg");
 const applicationEmailTemplate = require("../../../emailTemplate/applicationTemplate");
 const nodemailer = require('nodemailer');
 const sendMail = require("../../helpers/sendMail");
@@ -8,6 +8,7 @@ require("dotenv").config();
 const path = require("path");
 const { okResponse, errorResponse } = require("../../helpers/response");
 const { StatusCodes } = require("http-status-codes");
+const hygieneFeedbackTemplate = require("../../../emailTemplate/hygieneFeedbackTemplate");
 class ApplicationController {
 
   static async postApplication(req, res) {
@@ -96,6 +97,36 @@ class ApplicationController {
       html: html
     });
     return res.send("success");
+  }
+  static async postApplicationHygiene(req, res) {
+    const {
+      body : {firstname, email, lastname, phone_number, location, message} 
+    } = req;
+    let html = hygieneFeedbackTemplate({
+      salute : "Dear Admin",
+      intro : "New Hygiene Feedback Message from " + firstname+ " " + lastname,
+      name: firstname+ " " + lastname,
+      email: email,
+      phoneNumber: phone_number,
+      message: message,
+      location: location,
+    });
+
+    // Sending email using Nodemailer
+    await sendMail({
+      from: process.env.TEKNO_NOTIFY,
+      to: process.env.TEKNO_NOTIFY, // Update with your Mailtrap inbox email
+      subject: "New Hygiene Feedback Message from " + firstname+ " " + lastname,
+      html: html
+    });
+
+    return okResponse({
+      res,
+      message : "Feedback received",
+      data : {},
+      status : "success",
+      statusCode : StatusCodes.OK
+    })
   }
 }
 

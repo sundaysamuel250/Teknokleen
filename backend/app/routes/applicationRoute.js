@@ -2,7 +2,7 @@ const { Router } = require('express');
 const validateRequestBody = require('../helpers/validateRequestBody');
 const { catchInternalServerError } = require('../middlewares/catchError');
 const ApplicationController = require('../controllers/application_form/applicationController');
-const { validateCreateApplication, validateCreateApplicationCourse } = require('../../validators/application.validators');
+const { validateCreateApplication, validateCreateApplicationCourse, validateCreateApplicationHygiene } = require('../../validators/application.validators');
 const applicationRouter = Router();
 const multer = require("multer")
 
@@ -21,6 +21,10 @@ applicationRouter.post('/application-form', upload.single('file'),
 applicationRouter.post('/submit-form',
   validateRequestBody(validateCreateApplication),
   catchInternalServerError(ApplicationController.postApplication)
+)
+applicationRouter.post('/hygiene-form',
+  validateRequestBody(validateCreateApplicationHygiene, 'payload'),
+  catchInternalServerError(ApplicationController.postApplicationHygiene)
 )
 applicationRouter.post(
   '/courses-form',

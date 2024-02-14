@@ -119,7 +119,7 @@ const paymentDone = async (resp) => {
       className={`${isOpen ? 'block' : 'hidden'
         } fixed inset-0 w-full h-full z-50 overflow-auto bg-black bg-opacity-50 flex`}
     >
-      <div className="relative px-3 pt-8 w-[50%] h-[80%] overflow-auto bg-white rounded-lg m-auto">
+      <div className="relative px-3 pt-8 lg:w-[50%] md: h-[80%] overflow-auto bg-white rounded-lg m-auto">
         <button
           className="absolute top-0 right-0 p-2 m-3 text-[24px] text-[#23146D] hover:text-red-500"
           onClick={onClose}

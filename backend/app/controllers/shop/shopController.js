@@ -109,6 +109,7 @@ class ShopController {
         var  all = await ProductService.GetProductsCount([search])
         count = all[0].count
      }
+     console.log('products', products)
     
      return okResponse({
       res,
@@ -182,8 +183,6 @@ class ShopController {
       html : templateeAdmin,
       to : process.env.TEKNO_NOTIFY,
     })
-
-
 
     if(sm.error){
      return errorResponse({

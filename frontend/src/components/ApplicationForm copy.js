@@ -51,7 +51,7 @@ const ApplicationForm = ({ isOpen, onClose }) => {
         formDataWithFile.append('email', formData.email);
         formDataWithFile.append('message', formData.message);
 
-  let res = await httpPostWithoutToken("courses-form", formDa);
+  let res = await httpPostWithoutToken("courses-form", formData);
         
         const response = await axios.post("http://localhost:9000/api/application-form", formDataWithFile, {
           headers: {
