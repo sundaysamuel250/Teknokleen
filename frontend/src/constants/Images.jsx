@@ -1,5 +1,5 @@
 import Logo from "../assets/logo.png"
-import Home from "../assets/home.png"
+import Home from "../assets/Home-bg.png"
 import ImgBG from "../assets/bg.png"
 import cleaning_service from "../assets/cleaning.png"
 import hygiene_market from "../assets/hygiene_market.png"
@@ -24,9 +24,14 @@ import Leasing_plc from "../assets/leasingplc.png"
 import Lotus_capital from "../assets/lotus.png"
 import Michelin from "../assets/michelin.png"
 import Swift from "../assets/swift.png"
+import Bet_king from "../assets/bet-king-logo.png"
+import Cardinal_stone from "../assets/cardinalstone_logo.png"
+import Tvc from "../assets/tvc-news-logo.png"
+import Signature_bank from "../assets/Signature-Bank.jpeg"
+import Mega_plaza from "../assets/Mega-Plaza-online-mall-Logo.png"
 import Choose from "../assets/chooose.svg"
 import LearnAbout from "../assets/let's.png"
-import Woman_home from "../assets/About_hero_image.png"
+import About_usBG from "../assets/about_bg.png"
 import Digital_service from "../assets/digital-service.png"
 import Mission from "../assets/mission_img.svg"
 import Team from "../assets/team.jpg"
@@ -41,6 +46,7 @@ import All_post_img2 from "../assets/all_post2.svg"
 import All_post_img3 from "../assets/all_post3.svg"
 import Get_IMG from "../assets/get-img.svg"
 import Applicate_IMG from "../assets/applicat-img.svg"
+import Services_staff_img from "../assets/services_staff.png"
 
 
 
@@ -80,8 +86,13 @@ export default {
     Michelin,
     Swift,
     Choose,
+    Bet_king,
+    Cardinal_stone,
+    Tvc,
+    Signature_bank,
+    Mega_plaza,
     LearnAbout,
-    Woman_home,
+    About_usBG,
     Digital_service,
     Mission,
     Team,
@@ -95,5 +106,6 @@ export default {
     All_post_img2,
     All_post_img3,
     Get_IMG,
-    Applicate_IMG
+    Applicate_IMG,
+    Services_staff_img
 }

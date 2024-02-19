@@ -1,22 +1,19 @@
-const db = require("../../../config/mysql");
+const db = require("../../../config/pg");
 const productQueries = require("../../queries/products/product");
 class ProductService {
   static async GetProduct(data) {
-    console.log(productQueries.getProduct(data))
-    const q = await db.query(productQueries.getProduct(data));
-    console.log("Quering database to select all test");
+    const q = await db(productQueries.getProduct(data));
+    console.log("Quering database to select a test");
     return q;
   }
 
   static async GetProducts(data) {
-  
-    const q = await db.query(productQueries.getProducts(data));
-    console.log("Quering database to select products");
+    const q = await db(productQueries.getProducts(data));
     return q;
   }
   static async GetProductsCount(data) {
   
-    const q = await db.query(productQueries.GetProductsCount(data));
+    const q = await db(productQueries.GetProductsCount(data));
     console.log("Quering database to select products");
     return q;
   }
@@ -24,7 +21,7 @@ class ProductService {
   static async create(data) {
     console.log("Quering database to create  category");
     const query = productQueries.create(data);
-    const q = await db.query(query);
+    const q = await db(query);
     return q;
   }
 }

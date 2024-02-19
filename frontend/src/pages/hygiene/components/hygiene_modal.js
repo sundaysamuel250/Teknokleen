@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import FooterSection from "../../home/components/FooterSection";
 import OneOffCleaningModal from "../modal/one_off_cleaning";
-import PeriodicCleaningModal from "../modal/one_off_cleaning copy";
+import PeriodicCleaningModal from "../modal/periodic";
 import PestModal from "../modal/pest";
 
 function HygieneModal({ onClose, id }) {

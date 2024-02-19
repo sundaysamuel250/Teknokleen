@@ -29,7 +29,7 @@ function SlideProducts() {
       <div className="w-full overflow-hidden py-5">
         <Slider {...settings}>
           {categories.map((item, i) => (
-            <Link to={"/hygiene-shop/"+item.slug} className="p-3 ">
+            <Link  key={i} to={"/hygiene-shop/"+item.slug} className="p-3 ">
               <div
                 style={{ border: "1px solid #6EC1E4" }}
                 className="flex mx-auto max-w-[400px] items-center justify-between p-3 px-5 bg-white rounded-[15px]"

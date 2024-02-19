@@ -12,6 +12,7 @@ import RegistrationForm from './pages/school/components/RegistrationForm';
 import ScrollToTop from './components/ScrollToTop';
 import { useContext } from 'react';
 import { AppContext } from './state/context';
+import HygieneShopCheckout from './pages/hygine-shop/checkout';
 
 
 function App() {
@@ -20,6 +21,7 @@ function App() {
     <>
       <Router>
       <ScrollToTop />
+        <div className='conatiner max-w-[1450px] mx-auto'>
         <Navbar />
         <Routes>
           <Route path="/" element={<Home />} />
@@ -37,6 +39,8 @@ function App() {
           <Route path="hygiene-shop">
             <Route path="" element={<HygieneShop />} />
             <Route path=":category" element={<HygieneShopPage />} />
+            <Route path='checkout' element={<HygieneShopCheckout />} />
+            <Route path='checkout/:product'  element={<HygieneShopCheckout />} />
           </Route>
 
           <Route path="school">
@@ -44,6 +48,7 @@ function App() {
             <Route path="courses" element={<Courses />} />
           </Route>
         </Routes>
+        </div>
       </Router>
     </>
   );

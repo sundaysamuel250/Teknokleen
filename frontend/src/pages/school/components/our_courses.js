@@ -50,7 +50,7 @@ function OurCourses() {
               <button onClick={openModal} className="bg-[#FFC640] hover:bg-[#FFC640] hover:tracking-[1px] md:w-[203px] md:h-[64px] w-[150px] h-[35px] rounded-[10px] text-[#fff] font-normal font-['Poppins'] md:text-[16px] text-[10px] leeding-none not-italic border-none tracking-wide ">
                 Register here
               </button>
-              <RegistrationForm isOpen={isModalOpen} onClose={closeModal} />
+              <RegistrationForm amt={180000} title="ENTREPRENEURIAL COURSE FOR OPERATORS OF CLEANING BUSINESS" isOpen={isModalOpen} onClose={closeModal} />
             </div>
           </div>
         </div>

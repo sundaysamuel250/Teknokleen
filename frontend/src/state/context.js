@@ -11,11 +11,40 @@ export default function AppStateProvider(props){
         ls.set("cartItems", c)
         setCart(c)
     }
+    const newCart = (items) => {
+        ls.set("cartItems", items)
+
+        setCart(items)
+    }
+    const updateCartQty = (productSlug, type) => {
+        var c = ls.get("cartItems") ?? [];
+        var product = c.find((p)=> p.slug == productSlug)
+        if(product){
+            if(type == "minus"){
+                product.qty = !product.qty || product.qty == 1 ? 1 : product.qty - 1
+            }else{
+                product.qty = !product.qty ? 1 : product.qty + 1
+            }
+        }
+
+        var cartItems = []
+        for (let i = 0; i < c.length; i++) {
+            const item = c[i];
+            if(item.slug == productSlug){
+                cartItems = [...cartItems, product]
+            }else{
+                cartItems = [...cartItems, item]
+            }
+        }
+        ls.set("cartItems", cartItems)
+        console.log(cartItems)
+        setCart(cartItems)
+    }
 
     return (
         <AppContext.Provider
         value={{
-            cart, updateCart
+            cart, updateCart,updateCartQty, newCart
         }}
          >
             {props.children}

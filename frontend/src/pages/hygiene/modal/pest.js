@@ -9,8 +9,8 @@ function PestModal() {
       </h3>
       <div className="p-3 text-[#4F4F4F] text-center text-[16px]">
         <p>
-          The perfect selection of solutions to deal with rodent, insect or
-          birds infestation. We will rapidly get rid of the pests that plague
+          The perfect selection of solutions to deal with rodent, reptile, insect or
+          bird infestation. We will rapidly get rid of the pests that plague
           your home or business premises. In four steps, we carry out a
           custom-tailored pest control session to fit your specific needs:
         </p>

@@ -1,5 +1,6 @@
 import { unleash } from "../../../constants/hygiene_images";
 
+
 function UnleashSection() {
     const unleashHeadStyle = {
         color : '#00A5E2',
@@ -33,7 +34,7 @@ function UnleashSection() {
               </div>
 
               <div className="flex-initial text-center h-[fit-content]  lg:w-[40%] w-[95%]">
-              <h3 style={unleashHeadStyle}>25+%</h3>
+              <h3 style={unleashHeadStyle}>30+%</h3>
                 <div>
                   <strong>Years in Business</strong>
                   <p>We bring a wealth of knowledge and expertise to all projects</p>
@@ -42,7 +43,7 @@ function UnleashSection() {
             </div>
             <div className="h-[50px]" />
             <div className="flex-initial text-center w-[95%]">
-            <h3 style={unleashHeadStyle}>200k</h3>
+            {/* <h3 style={unleashHeadStyle}>200k</h3> */}
               <div>
                 <strong>trained Professional staff</strong>
                 <p>We prioritize the professionalism and expertise of our staff</p>

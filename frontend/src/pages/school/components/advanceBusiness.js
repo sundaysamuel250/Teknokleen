@@ -3,6 +3,7 @@ import  { advanceImage } from "../../../constants/school_images"
 
 import Data from "./advance_business_accordion_components/Data";
 import Register from "./advance_business_accordion_components/Register";
+import RegistrationForm from './RegistrationForm';
 
 function AdvancedBusiness() {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -44,7 +45,7 @@ function AdvancedBusiness() {
               <button onClick={openModal} className="bg-[#23146D] hover:bg-[#23146D] hover:tracking-[1px] md:w-[203px] md:h-[64px] w-[150px] h-[35px] rounded-[10px] text-[#FFC640] font-normal font-['Poppins'] md:text-[16px] text-[10px] leeding-none not-italic border-none tracking-wide ">
                 Register Here
               </button>
-              <Register  isOpen={isModalOpen} onClose={closeModal} />
+              <RegistrationForm amt={120000} title="ADVANCED BUSINESS MANAGERS TRAINING" isOpen={isModalOpen} onClose={closeModal} />
             </div>
           </div>
         </div>

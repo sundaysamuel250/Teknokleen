@@ -27,7 +27,7 @@ const Navbar = () => {
   }, [pathname]);
   return (
     <div className="w-full fixed top-0 left-0 z-50 lg:px-12 md:px-8">
-      <div className="md:flex items-center lg:justify-between md:justify-between py-4 px-4">
+      <div className="md:flex items-center lg:justify-between md:justify-between py-4 px-4 conatiner max-w-[1450px] mx-auto">
         <div className="cursor-pointer flex items-center lg:w-[80px] lg:h-[90px] w-[50px] h-[50px]">
          <Link to="/" >
          <img src={Images.Logo} alt="Logo" /></Link>

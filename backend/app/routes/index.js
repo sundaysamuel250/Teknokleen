@@ -4,6 +4,7 @@ const ROUTES = require("./constants.routes.js");
 const shopRoutes = require("./shop.routes.js");
 const testsRouter = require("./tests.routes.js");
 const contactRouter = require("./contactRoute.js");
+const applicationRouter = require("./applicationRoute.js");
 
 const { WILD_CARD, HOME } = ROUTES;
 
@@ -11,6 +12,6 @@ const { WILD_CARD, HOME } = ROUTES;
 const invalidRoutes = Router();
 invalidRoutes.all(WILD_CARD, invalidRoute);
 
-const allRoutes = [shopRoutes, testsRouter, contactRouter, invalidRoutes];
+const allRoutes = [shopRoutes, testsRouter, contactRouter, applicationRouter, invalidRoutes];
 
 module.exports = allRoutes;

@@ -69,3 +69,7 @@ body {
     right: 0;
   }
 } 
+
+.short_description ul {
+  list-style: circle !important;
+}

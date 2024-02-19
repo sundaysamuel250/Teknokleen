@@ -27,7 +27,7 @@ const ServicesSection = () => {
                <div class="lg:w-[40px] lg:h-[39.2px] lg:relative rounded-tl-[5px] top-[4.5rem] left-[-7rem] rounded-tr-[18px]  flex items-center justify-center rounded-br-[5px] rounded-bl-[10px] bg-[#86CFF2]" />
               </div>
               <h2 className='p-4 text-[#23146D] font-["Poppins"] md:text-[12px] lg:text-[20px] text-[12px] not-italic leading-normal font-semibold '>
-                TEKNOKLEEN CLEANING SERVICES
+                TEKNOKLEEN LIMITED
               </h2>
               <p className="text-[#222223] text-[10px] md:text-[10px] lg:text-[16px] lg:leading-[26px] leading-0 font-normal px-4 lg:px-0 ">
                 We offer comprehensive cleaning solutions for Industrial,

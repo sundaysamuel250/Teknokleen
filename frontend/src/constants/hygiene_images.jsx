@@ -1,8 +1,8 @@
-import HygieneBG from "../assets/hygiene/hygiene_bg.png";
+import HygieneBG from "../assets/hygiene-bg.png";
 import dhl from "../assets/hygiene/dhl.png";
 import seplat from "../assets/hygiene/seplat.png";
 import jobberman from "../assets/hygiene/jobberman.png";
-import unleash from "../assets/hygiene/unleash.png";
+import unleash from "../assets/unleash_new.png";
 import periodic from "../assets/hygiene/periodic_office.png";
 import pestControl from "../assets/hygiene/pest_control.png";
 import oneOffCleaning from "../assets/hygiene/one_off_cleaning.png";
@@ -18,4 +18,5 @@ export {
   pestControl,
   periodic,
   domestic,
+
 };

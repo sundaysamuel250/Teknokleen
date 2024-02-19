@@ -1,16 +1,17 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { AiOutlineMenu } from "react-icons/ai";
 
-const SortByDropdown = () => {
+const SortByDropdown = ({callback = null}) => {
   const [selectedSortBy, setSelectedSortBy] = useState("");
   const [showDropdown, setShowDropdown] = useState(false);
   const [categories, setCategories] = useState([
-    "Sort By 1",
-    "Sort By 2",
-    "Sort By 3",
-    "Sort By 4",
-    "Sort By 5",
+    "Sort Newest",
+    "Sort by Oldest",
+    "Sort by Name",
   ]);
+  useEffect(()=>{
+    callback(selectedSortBy)
+  }, [selectedSortBy])
   return (
     <div className="p-2 lg:p-10 font-[poppins]">
       <div className="dropdown inline-block relative">

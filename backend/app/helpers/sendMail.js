@@ -1,38 +1,29 @@
 const router = require("express").Router();
 const nodemailer = require("nodemailer");
-
-const sendMail = async ({subject, html, to, from = "Teknokleen"}) => {
-    
-var transport = nodemailer.createTransport({
-    host: "sandbox.smtp.mailtrap.io",
-    port: 2525,
+require("dotenv").config();
+const sendMail = async ({subject, html, to, from = "Teknokleen", attachments = null}) => {
+  var transport = nodemailer.createTransport({
+    service: 'gmail',
     auth: {
-      user: "e7ba21b71248e3",
-      pass: "30b5c71be3551c"
-    }
+      user: process.env.MAILER_USER,
+      pass: process.env.MAILER_PASSWORD
+    },
   });
+
   let mailOptions = {
     from: from,
     to: to,
     subject: subject,
-    html: html
+    html: html, 
   };
+  if(attachments) mailOptions.attachments = attachments
 
-
-
-
-  transport.sendMail(mailOptions, (error) => {
-   
-      if (error){
-        return {
-            status: false,
-            error: error
-            }
-      }
-      return{
-        status: true,
-      }
+  var r = await transport.sendMail(mailOptions).catch((err)=> {
+    if(err){
+      return {error : err};
+    }
   });
+  return r;
 };
 
 
