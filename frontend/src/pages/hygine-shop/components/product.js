@@ -1,4 +1,10 @@
+import { useEffect, useState } from "react"
+
 export const ProductView = ({product, close}) => {
+    const [daProduct, setDaProduct] = useState({})
+    useEffect(()=>{
+        
+    },[product])
     return (
         <div className="fixed top-0 left-0 w-full h-[100vh] z-[2323232323]">
             <div className="h-full w-full bg-[#00000080]" onClick={()=> close()}></div>
