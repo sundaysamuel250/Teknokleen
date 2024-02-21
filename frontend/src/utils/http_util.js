@@ -1,8 +1,8 @@
 import axios from "axios";
 import _ from "lodash";
 export const APP_API_URL = window.location.host.includes("localhost")
-  ? "http://localhost:9000/api" :
-    "http://localhost:9000/api";
+  ? "https://tekno.onrender.com/api" :
+    "https://tekno.onrender.com/api";
 
 export const validatePasswordRegex = /^(?=.*?[A-Z])(?=(.*[a-z]){1,})(?=(.*[\d]){1,})(?=(.*[\W]){1,})(?!.*\s).{8,}$/;
 

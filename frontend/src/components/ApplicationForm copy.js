@@ -53,7 +53,7 @@ const ApplicationForm = ({ isOpen, onClose }) => {
 
   let res = await httpPostWithoutToken("courses-form", formData);
         
-        const response = await axios.post("http://localhost:9000/api/application-form", formDataWithFile, {
+        const response = await axios.post("https://tekno.onrender.com/api/application-form", formDataWithFile, {
           headers: {
             'Content-Type': 'multipart/form-data',
           },

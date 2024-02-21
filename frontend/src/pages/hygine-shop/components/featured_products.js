@@ -31,7 +31,7 @@ function FeaturedProduct() {
  
   const fetchConstants = async ()=> {
     // alert(category )
-    const resp = await httpGetWithoutToken("shop/products?search="+useSearch+"&category="+category+"&brand="+brand+"sortBy="+sortBy)
+    const resp = await httpGetWithoutToken("shop/products?search="+useSearch+"&category="+category+"&brand="+brand+"&sortBy="+sortBy)
     if(resp.statusCode == 200){
       setProducts(resp.data.items)
     }
@@ -145,7 +145,7 @@ function FeaturedProduct() {
               onClick={()=>setProduct(item)}
                className="h-[300px] lg:h-[250px] pl-3 flex justify-center p-[20px] items-center">
                 <img
-                  className="h-[200px] lg:h-[150px] object-contain"
+                  className="h-[90%]  object-contain"
                   src={item.image}
                 />
               </div>

@@ -26,7 +26,7 @@ const RegistrationForm = ({ isOpen, onClose, title, amt }) => {
   const [hearaboutus, setHearAboutUs] = useState('')
   const [showpaystack, setShowPaystack] = useState(false)
 
-const publicKey = "pk_test_4fedad5180c7c3bef0d5d1b764c4ce546822c62b"
+const publicKey = "pk_test_8f31522a6130568a751f67e690000ec9d9b8738a"
 const componentProps = {
   email : email,
   amount : amount*100,

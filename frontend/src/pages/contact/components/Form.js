@@ -19,7 +19,7 @@ function Form() {
     e.preventDefault();
     // Handle form submission here
     try {
-      const response = await axios.post("http://localhost:9000/api/contact-form", formData);
+      const response = await axios.post("https://tekno.onrender.com/api/contact-form", formData);
       console.log(response)
 
       setFormData({

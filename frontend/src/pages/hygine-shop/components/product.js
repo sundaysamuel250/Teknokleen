@@ -1,15 +1,25 @@
 import { useContext, useEffect, useState } from "react"
 import { useNavigate } from "react-router-dom"
 import { AppContext } from "../../../state/context"
+import { alpha, httpGetWithoutToken } from "../../../utils/http_util";
 
 export const ProductView = ({product, addToCart, inCart, close}) => {
     const [qty, setQty] = useState(1)
     const navigate = useNavigate()
+    const [daProduct, setDaProduct] = useState({})
+    const [productLoading, setProductLoading] = useState(true)
     const {cart, updateCartQty} = useContext(AppContext)
     useEffect(()=> {
         var prod = cart.find((c)=> c.slug == product.slug)
         if(prod) setQty(prod.qty || 1)
+        fetchProduct(product)
     }, [product])
+
+    const fetchProduct =async () => {
+        const p = await httpGetWithoutToken("shop/product/"+product.slug)
+        setDaProduct(p.data[0])
+        setProductLoading(false)
+    }
     const updateQty = (type) => {
         if(type == "minus"){
             const r = qty == 1 ? 1 : qty-1;
@@ -26,7 +36,12 @@ export const ProductView = ({product, addToCart, inCart, close}) => {
             <div className="w-full top-[10vh] absolute h-[80vh]">
                 <div className="relative flex justify-center items-center h-full w-full">
                     <div className="container mx-auto relative">
-                        <div className="bg-white p-[20px]  overflow-auto shadow h-[80vh]">
+                        <div className="bg-white mx-auto max-w-[1000px] p-[20px]  overflow-auto shadow h-[80vh]">
+                            {
+                                productLoading 
+                                ? 
+                                <p>Loading product...</p>
+                                :
                             <div className="flex flex-wrap -mx-4">
                                 <div className="w-full px-4 md:w-1/2 ">
                                     <div className="sticky top-0 z-50 overflow-hidden ">
@@ -125,15 +140,12 @@ export const ProductView = ({product, addToCart, inCart, close}) => {
                                                     {product.name}
                                                 </a>
                                             </div>
-                                            <p className="max-w-md mb-8 text-gray-700 dark:text-gray-400">
-                                               {product.description}
+                                            <p className="max-w-md short_description mb-8 text-gray-700 dark:text-gray-400">
+                                               <div
+                                               dangerouslySetInnerHTML={{__html: daProduct?.short_description}}></div>
                                             </p>
                                           
-                                            <p className="inline-block text-2xl font-semibold text-gray-700 dark:text-gray-400 ">
-                                                <span>N{product.price}</span>
-                                                {/* <span
-                                                    className="text-base font-normal text-gray-500 line-through dark:text-gray-400">$1500.00</span> */}
-                                            </p>
+
                                         </div>
                                        
                                        
@@ -182,7 +194,8 @@ export const ProductView = ({product, addToCart, inCart, close}) => {
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                            }
+                            </div>
                     </div>
                 </div>
             </div>
