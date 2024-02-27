@@ -1,6 +1,8 @@
 import React, {useRef} from "react";
 import Images from "../../../constants/Images";
 import {motion, useScroll, useTransform} from "framer-motion"
+import { Link } from "react-router-dom";
+import { PopupButton } from "react-calendly";
 
 const AboutHeroSection = () => {
    const targetRef = useRef(null)
@@ -14,7 +16,7 @@ const AboutHeroSection = () => {
       return pos === 1 ? "relative" : "fixed";
    });
   return (
-    <motion.section className="lg:mx-[4rem] mx-[2rem] lg:flex items-center"
+    <motion.section className="lg:mx-[4rem]  mx-[2rem] lg:flex items-center"
     style={{opacity}}
     ref={targetRef}
     
@@ -53,9 +55,20 @@ const AboutHeroSection = () => {
        </section>
        </section>
        <section className="md:flex py-12 gap-5 flex"> 
-        <button className="bg-[#23146D] hover:bg-[#00A5E2] hover:tracking-[1px] md:w-[203px] md:h-[64px] 
-        w-[150px] h-[40px] rounded-[10px] text-[#fff] font-normal font-['Poppins'] md:text-[16px] text-[10px] 
-        leeding-none not-italic border-none tracking-wide ">Book Now</button>
+       <Link >
+          <button className="bg-[#23146D] hover:bg-[#00A5E2] hover:tracking-[1px] md:w-[203px] md:h-[64px] w-[150px] h-[40px] rounded-[10px] text-[#fff] font-normal font-['Poppins'] md:text-[16px] text-[10px] leeding-none not-italic border-none tracking-wide ">
+          <PopupButton
+        url="https://calendly.com/webmaster-5z8"
+        /*
+         * react-calendly uses React's Portal feature (https://reactjs.org/docs/portals.html) to render the popup modal. As a result, you'll need to
+         * specify the rootElement property to ensure that the modal is inserted into the correct domNode.
+         */
+        rootElement={document.getElementById("root")}
+        text="Book Now"
+      />
+          </button>
+      
+          </Link>
         <div className="h-[100px] w-[100px] bg-[#00A5E2] rounded-[50%] opacity-[0.7] blur-[67px] absolute md:left-[12%] bottom-[2%]" />
        </section>
       </section>
@@ -68,10 +81,10 @@ const AboutHeroSection = () => {
           initial={{ opacity: 0, scale: 0.5 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 3 }}
-          className="md:absolute relative lg:left-[-4rem] lg:top-[2rem]  left-0 md:p-[] md:left-0 md:right-5  md:w-[554px] md:h-[746px]  w-[300px] h-[300px] ">
+          className="md:absolute relative lg:left-[-4rem] lg:top-[2rem] top-[-8rem]  left-0 md:p-[] md:left-0 md:right-5  md:w-[554px] md:h-[746px]  w-[300px] h-[300px] ">
           <img src={Images.About_usBG}  alt="picture"/>
           </motion.div>
-          <div className="">
+          <div className="lg:block md:block hidden">
         <svg xmlns="http://www.w3.org/2000/svg" className="md:w-[554px] md:h-[650px] w-[200px] h-[200px]" viewBox="0 0 554 746" fill="none">
          <path d="M267.18 718.451C-191.464 576.118 42.7271 181.213 217.153 1.55255L436.77 -63.3346L779.453 -112L868 177.376C858.828 417.04 725.824 860.784 267.18 718.451Z" fill="#E2F3FD" fill-opacity="0.6"/>
        </svg>

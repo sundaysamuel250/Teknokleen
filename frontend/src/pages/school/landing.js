@@ -5,6 +5,7 @@ import ElevateSchool from "./components/elevateSection";
 import { mask } from "../../constants/school_images";
 import SchoolHero from "./components/hero"
 import Footer_about from "../about/components/Footer_about";
+import ImagesContainer from "./components/Image_slider_section/ImagesContainer";
 
 const School = () => {
   return (
@@ -12,7 +13,8 @@ const School = () => {
     <SchoolHero />
       <OurClientSection />
       <ElevateSchool />
-      <img src={mask} className="w-full" />
+      {/* <img src={mask} className="w-full" /> */}
+      <ImagesContainer />
       <AboutCleaningSection />
       <Footer_about />
     </>

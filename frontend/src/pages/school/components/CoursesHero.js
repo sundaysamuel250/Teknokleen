@@ -11,7 +11,7 @@ function CoursesHero() {
     >
       <div className="container">
         <h3 className="text-center lg:text-[64px] md:text-[50px] text-[24px] text-[#FFFFFF]">
-          Courses that will give him in-depth practical knowledge that you need
+          Courses that will give you in-depth practical knowledge that you need
         </h3>
       </div>
     </div>

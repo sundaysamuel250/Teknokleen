@@ -188,11 +188,19 @@ const ExemplifyValue_page = () => {
               </p>
             </section>
           </section>
-          <section className="relative mt-[8rem]">
-            <div className="absolute inset-0 bg-[#150950] from-black h-[700px] to-transparent opacity-[0.4]"></div>
+          <section className="relative mt-8 lg:mt-16">
+  <div className="absolute inset-0 bg-gradient-to-b from-black to-transparent lg:bg-gradient-to-r lg:from-transparent lg:to-black opacity-20 lg:opacity-40 h-full lg:h-[700px]"></div>
+  <img src={Images.Team} alt="team" className="w-full h-auto lg:h-[700px] xl:h-[700px] object-cover" />
+  <h1 className="absolute bottom-[6rem] lg:bottom-[20rem] text-center text-white font-gentium-book-basic text-2xl lg:text-5xl xl:text-6xl leading-normal lg:leading-snug lg:w-full lg:max-w-3xl mx-auto lg:left-0 lg:right-0 px-6 lg:px-0">Meet Our Dynamic Team of Hygiene Innovators</h1>
+</section>
+
+          {/* <section className="relative mt-[8rem]">
+            <div className="absolute inset-0 bg-[#150950] from-black h-[700px] to-transparent opacity-[0.2]"></div>
             <img src={Images.Team} alt="team" className="w-full h-[700px] object-cover" />
+            <img src={Images.Team} alt="team" className="w-full h-auto lg:h-64 xl:h-80 object-cover" />
+
             <h1 className="relative bottom-[28rem] text-center text-white font-gentium-book-basic lg:text-[78px] md:text-[36px] leading-[99px] lg:w-[887px] lg:left-[18rem] flex item-center justify-center">Meet Our Dynamic Team of Hygiene Innovator</h1>
-          </section>
+          </section> */}
         </section>
       </section>
     </>

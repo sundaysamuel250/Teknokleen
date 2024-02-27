@@ -24,7 +24,7 @@ function ElevateSchool() {
             />
           </div>
           <div className="flex p-3 flex-col justify-center items-center gap-4">
-            <h1 className="text-[54px] leading-tight text-[#23146D] font-['gentium'] font-[700] leading">
+            <h1 className="lg:text-[54px] md:text-[48px] text-[32px] leading-tight text-[#23146D] font-['gentium'] font-[700] leading">
               Elevate Your Skills and Be Empower{" "}
             </h1>
             <p className="font-[16px] text-[#0D1111]">

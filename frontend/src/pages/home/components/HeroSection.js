@@ -17,7 +17,7 @@ const HeroSection = () => {
   });
   return (
     <motion.section
-      className="lg:mx-[4rem] mx-[2rem] lg:flex items-center"
+      className="lg:mx-[4rem] mx-[2rem] lg:flex items-center lg:h-[100vh] md:h-[100vh] h-[80vh]"
       style={{ opacity}}
       ref={targetRef}
     >
@@ -101,7 +101,7 @@ const HeroSection = () => {
           >
             <img src={Images.Home} alt="picture" className="w-[90%]" />
           </motion.div>
-          <div className="">
+          <div className="lg:block md:block hidden">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="md:w-[554px] md:h-[746px] w-[200px] h-[200px]"

@@ -53,7 +53,7 @@ const HygieneShopHero = () => {
       
               <br />
               <div className="h-[100px] w-[100px] bg-[#00A5E2] rounded-[50%] opacity-[0.7] blur-[67px] absolute lg:left-[40%] md:left-[60%]" />
-              <b>For Cleaningnes and Sanitary Solution</b>
+              <b>For Cleaningness and Sanitary Solution</b>
             </motion.h1>
             <motion.p
               initial={{ x: -999 }}

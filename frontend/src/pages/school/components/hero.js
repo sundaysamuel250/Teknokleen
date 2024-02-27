@@ -72,7 +72,7 @@ const SchoolHero = () => {
             </motion.p>
           </section>
         </section>
-        <div className="flex justify-start block lg:hidden">
+        <div className="flex justify-start lg:hidden">
           <img
             src={schoolImage}
             className=" w-full object-cover object-top"
