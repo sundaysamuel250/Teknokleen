@@ -13,6 +13,7 @@ import ScrollToTop from './components/ScrollToTop';
 import { useContext } from 'react';
 import { AppContext } from './state/context';
 import HygieneShopCheckout from './pages/hygine-shop/checkout';
+import PrivacyPolicy from './components/PolicyPrivacy';
 
 
 function App() {
@@ -29,6 +30,7 @@ function App() {
           <Route path="career" element={<Career />} />
           <Route path="blog" element={<Blog />} />
           <Route path="contact" element={<Contact />} />
+          <Route path="privacy-policy" element={<PrivacyPolicy/>} />
           <Route path="register-form" element={<RegistrationForm />} />
           
           {/* hygiene */}

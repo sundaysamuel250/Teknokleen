@@ -49,14 +49,22 @@ const Footer_about = () => {
     <section className="mt-[12rem] flex flex-col-reverse sm:flex-row items-center justify-center lg:space-x-[36rem] md:space-x-[12rem]">
         <footer className="flex items-center justify-center lg:space-x-[2rem] space-x-4 lg:mt-0 md:mt-0 mt-[8rem] text-[#0D1111] font-['Poppins'] lg:text-[18px] text-[12px] font-semibold leading-32">
           <p>&copy; {currentYear} Teknokleen..</p>
+          <Link to="/privacy-policy">
           <h2>Privacy Policy</h2>
+          </Link>s
           <h2>Terms of use </h2>
         </footer>
         <section className="flex items-center justify-center lg:mt-0 md:mt-0 mt-[1rem] space-x-6">
-        <div ><FaFacebook className="w-[40px] h-[40px] rounded-[400px]" color="#000"  /></div>
-        <div><FaLinkedin className="w-[40px] h-[40px] rounded-[400px]"  /></div>
-        <div><FaInstagram className="w-[40px] h-[40px] rounded-[400px]" /></div>
-        <div><AiFillTwitterCircle className="w-[40px] h-[40px] rounded-[400px]" /></div>
+        <Link to="https://web.facebook.com/profile.php?id=61571811458609" target="_blank">
+                <div ><FaFacebook className="w-[40px] h-[40px] rounded-[400px]" color="#000"  /></div>
+               </Link>
+                <div><FaLinkedin className="w-[40px] h-[40px] rounded-[400px]"  /></div>
+               <Link to="https://www.instagram.com/teknokleengroup/" target="_blank">
+               <div><FaInstagram className="w-[40px] h-[40px] rounded-[400px]" /></div>
+               </Link>
+               <Link to="https://x.com/TeknokleenGroup">c
+               <div><AiFillTwitterCircle className="w-[40px] h-[40px] rounded-[400px]" /></div>
+               </Link>
         </section>
       </section>
    </section>

@@ -26,7 +26,7 @@ const OurClientSection = () => {
       <div className="flex items-center justify-center border-2 border-[#85CFF280] lg:w-full lg:h-[212px] md:w-[100%] md:h-[212px] h-[150px] lg:rounded-l-[400px] md:rounded-l-[400px] rounded-l-[200px] border-bl-4 lg:mt-6 md:mt-6 mt-[4rem]  lg:ml-[8rem]">
         <div className="mb-2 lg:ml-40 md:ml-20 ml-10">
           <h3 className='lg:text-[29px] md:text-[20px] text-[16px] font-["Poppins"] not_italic font-semibold lg:w-[300px] w-[150px] md: '>
-            Over <span className="text-[#00A5E2]">100+</span>plus happy clients
+            Over <span className="text-[#00A5E2]">50,000+</span>plus happy clients
           </h3>
         </div>
         <motion.div
